@@ -1,7 +1,5 @@
 import React from "react";
 
-import styled from "styled-components/native";
-import { Image, View } from "react-native";
 import { Text } from "../../../components/typography/text.component";
 import { SvgXml } from "react-native-svg";
 
@@ -33,16 +31,6 @@ export const RestaurantsInfoCard = ({ restaurant }) => {
     rating = 4,
     isClosedTemporarily = true,
   } = restaurant;
-
-  // const {
-  //   name,
-  //   icon,
-  //   photos,
-  //   vicinity,
-  //   isOpenNow,
-  //   rating,
-  //   isClosedTemporarily,
-  // } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
