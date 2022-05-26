@@ -1,12 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { ThemeProvider } from "styled-components/native";
 
 import { HomeView } from "./src/views/home/home";
 import { AccountView } from "./src/views/account/account";
 import { StoresView } from "./src/views/stores/stores";
+import { CartView } from "./src/views/cart/cart";
+import { theme } from "./src/infraestructure/theme";
 
 const Tab = createBottomTabNavigator();
 const Tab_icon = {
@@ -25,23 +28,46 @@ const createScreenOptions = ({ route }) => {
   };
 };
 
+import {
+  useFonts as useOswald,
+  Oswald_400Regular,
+} from "@expo-google-fonts/oswald";
+import {
+  useFonts as useLato,
+  Lato_400Regular,
+  useFonts,
+} from "@expo-google-fonts/lato";
+
 export default function App() {
+  const [oswaldLoaded] = useOswald({
+    Oswald_400Regular,
+  });
+  const [latoLoaded] = useLato({
+    Lato_400Regular,
+  });
+
+  if (!oswaldLoaded || !latoLoaded) {
+    return null;
+  }
+
   return (
     <>
-      <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={createScreenOptions}
-          tabBarOptions={{
-            activeTintColor: "blue",
-            inactiveTintColor: "gray",
-          }}
-        >
-          <Tab.Screen name="home" component={HomeView} />
-          <Tab.Screen name="stores" component={StoresView} />
-          <Tab.Screen name="cart" component={AccountView} />
-          <Tab.Screen name="account" component={AccountView} />
-        </Tab.Navigator>
-      </NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={createScreenOptions}
+            tabBarOptions={{
+              activeTintColor: theme.colors.brand.tertiary,
+              inactiveTintColor: theme.colors.ui.secondary,
+            }}
+          >
+            <Tab.Screen name="home" component={HomeView} />
+            <Tab.Screen name="stores" component={StoresView} />
+            <Tab.Screen name="cart" component={CartView} />
+            <Tab.Screen name="account" component={AccountView} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </ThemeProvider>
     </>
   );
 }

@@ -7,15 +7,15 @@ import { SafeArea } from "../../global_components/safe-area.component";
 //   ************ Styled Components ***************************
 const AccountContainer = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.brand.muted};
+  background-color: ${({ theme }) => theme.colors.brand.tertiary};
 `;
 
-export const AccountView = () => {
+export const CartView = () => {
   return (
     <>
       <SafeArea>
         <AccountContainer>
-          <Text variant="label">I am Account View</Text>
+          <Text>I am Cart View</Text>
         </AccountContainer>
       </SafeArea>
     </>

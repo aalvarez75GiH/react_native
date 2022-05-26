@@ -1,17 +1,14 @@
 import React, { useContext } from "react";
 import styled from "styled-components/native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { Text } from "../../../src/infraestructure/typography/text.component";
 
 import { SafeArea } from "../../global_components/safe-area.component";
 
 //   ************ Styled Components ***************************
 const StoreContainer = styled.View`
   flex: 1;
-  background-color: blue;
-`;
-const Title = styled.Text`
-  /* font-family: Arial, Helvetica, sans-serif; */
-  font-size: 16px;
+  background-color: ${({ theme }) => theme.colors.brand.secondary};
 `;
 
 export const StoresView = () => {
@@ -19,7 +16,7 @@ export const StoresView = () => {
     <>
       <SafeArea>
         <StoreContainer>
-          <Title>I am Stores View</Title>
+          <Text variant="label">I am Stores View</Text>
         </StoreContainer>
       </SafeArea>
     </>
