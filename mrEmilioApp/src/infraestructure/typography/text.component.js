@@ -31,10 +31,16 @@ const label = (theme) => `
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
 `;
+const labelBold = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.body};
+    font-weight: ${theme.fontWeights.bold};
+`;
 
 const variants = {
   body,
   label,
+  labelBold,
   caption,
   error,
   hint,

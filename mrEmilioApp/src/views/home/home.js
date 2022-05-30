@@ -9,6 +9,7 @@ import { SearchContainer } from "./home.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import ProductCardView from "./product.card";
 import { FlatList } from "react-native-gesture-handler";
+import { ProductsContext } from "../../infraestructure/services/products/products.context";
 
 const data = [
   {
@@ -29,30 +30,15 @@ const data = [
   },
 ];
 //   ************ Styled Components ***************************
-const HomeContainer = styled.View`
-  flex: 1;
-  background-color: ${({ theme }) => theme.colors.bg.primary};
-`;
+
 const ProductList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
   },
 })``;
 
-const product = {
-  name: "Some Restaurant",
-  icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-  photos: [
-    "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-  ],
-  vicinity: "100 some random street",
-  isOpenNow: true,
-  rating: 4,
-  isClosedTemporarily: true,
-};
-
 const renderItem = ({ item }) => {
-  console.log("this is Item: ", item);
+  // console.log("this is Item: ", item);
   return (
     <Spacer position="bottom" size="large">
       <ProductCardView product={item} />
@@ -60,6 +46,13 @@ const renderItem = ({ item }) => {
   );
 };
 export const HomeView = () => {
+  const { products, isLoading, error } = useContext(ProductsContext);
+  console.log("this is Products at home View:", products);
+
+  // const test = products.map((product) => {
+  //   return console.log(product.name);
+  // });
+
   return (
     <>
       <SafeArea>
@@ -67,7 +60,7 @@ export const HomeView = () => {
           <Searchbar />
         </SearchContainer>
         <ProductList
-          data={data}
+          data={products}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />

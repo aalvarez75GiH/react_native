@@ -1,65 +1,72 @@
 import React from "react";
-import { SvgXml } from "react-native-svg";
+import { Rating } from "react-native-ratings";
 
-import star from "../../../assets/star";
-import OpenOrCloseIcon from "../../../assets/open_Icon";
+import myImage from "../../../assets/pictures/suero.jpg";
+import { theme } from "../../infraestructure/theme";
 import {
   ProductCardContainer,
   ProductCardCover,
   Info,
   Address,
-  Raiting,
   Section,
   SectionEnd,
   Icon,
+  BuyProductButton,
+  SendToCartButton,
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 
-const ProductCardView = () => {
-  const product = {
-    name: "Some Restaurant",
-    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-    photos: [
-      "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-    ],
-    vicinity: "100 some random street",
-    isOpenNow: true,
-    rating: 4,
-    isClosedTemporarily: true,
-  };
-
-  const ratingArray = Array.from(new Array(Math.floor(product.rating)));
-
-  const renderingRatingStars = ratingArray.map(() => {
-    return <SvgXml xml={star} width="20" height="20" />;
-  });
+const ProductCardView = ({ product }) => {
+  const {
+    name = "Some Product",
+    description = "Some description",
+    picture = "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
+    rating = 4,
+    price = 12,
+    stock = 5,
+    size = "32oz",
+    quantity = "1",
+  } = product;
 
   return (
     <ProductCardContainer elevation={5}>
       <ProductCardCover
+        // resizeMode="contain"
+        // style={{ width: 320, height: 300 }}
         key={product.name}
-        source={{ uri: product.photos[0] }}
+        // source={{ uri: product.photos[0] }}
+        source={product.picture}
       />
       <Info>
         <Text variant="label">{product.name}</Text>
         <Section>
-          <Raiting>{renderingRatingStars}</Raiting>
+          <Rating
+            // ratingCount={product.rating}
+            type="heart"
+            imageSize={30}
+            startingValue={product.rating}
+            readonly={true}
+          />
           <SectionEnd>
-            {product.isClosedTemporarily && (
-              <Text variant="error">CLOSED TEMPORARILY</Text>
-            )}
-            <Spacer position="left" size="large">
-              {product.isOpenNow && (
-                <SvgXml xml={OpenOrCloseIcon} width="20" height="20" />
-              )}
-            </Spacer>
-            <Spacer position="left" size="large">
-              <Icon source={{ uri: product.icon }} />
-            </Spacer>
+            <Text variant="labelBold">{product.price}$</Text>
+            {/* <Spacer position="left" size="large"></Spacer> */}
+            {/* <Spacer position="left" size="large"></Spacer> */}
           </SectionEnd>
         </Section>
-        <Address>{product.vicinity}</Address>
+        <Address>{product.description}</Address>
+        <Spacer position="top" size="large"></Spacer>
+        <BuyProductButton>
+          <Text variant="label" style={{ color: "#ffffff" }}>
+            Buy Now
+          </Text>
+        </BuyProductButton>
+        <Spacer position="top" size="small"></Spacer>
+        <SendToCartButton>
+          <Text variant="label" style={{ color: "#ffffff" }}>
+            Send to cart
+          </Text>
+        </SendToCartButton>
       </Info>
     </ProductCardContainer>
   );
