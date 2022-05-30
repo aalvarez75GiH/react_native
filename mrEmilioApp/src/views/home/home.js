@@ -38,7 +38,6 @@ const ProductList = styled(FlatList).attrs({
 })``;
 
 const renderItem = ({ item }) => {
-  // console.log("this is Item: ", item);
   return (
     <Spacer position="bottom" size="large">
       <ProductCardView product={item} />
@@ -46,12 +45,9 @@ const renderItem = ({ item }) => {
   );
 };
 export const HomeView = () => {
-  const { products, isLoading, error } = useContext(ProductsContext);
+  const { products, isLoading, error, restaurants } =
+    useContext(ProductsContext);
   console.log("this is Products at home View:", products);
-
-  // const test = products.map((product) => {
-  //   return console.log(product.name);
-  // });
 
   return (
     <>

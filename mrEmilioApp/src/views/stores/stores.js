@@ -9,6 +9,7 @@ import { SearchContainer } from "./stores.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import StoreCardView from "./store.card";
 import { FlatList } from "react-native-gesture-handler";
+import { ProductsContext } from "../../infraestructure/services/products/products.context";
 
 const data = [
   {
@@ -45,6 +46,8 @@ const renderItem = ({ item }) => {
   );
 };
 export const StoresView = () => {
+  const { restaurants } = useContext(ProductsContext);
+  console.log("this is Restaurants at Stores View:", restaurants);
   return (
     <>
       <SafeArea>
@@ -52,7 +55,7 @@ export const StoresView = () => {
           <Searchbar />
         </SearchContainer>
         <StoresList
-          data={data}
+          data={restaurants}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />

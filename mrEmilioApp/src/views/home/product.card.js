@@ -31,18 +31,11 @@ const ProductCardView = ({ product }) => {
 
   return (
     <ProductCardContainer elevation={5}>
-      <ProductCardCover
-        // resizeMode="contain"
-        // style={{ width: 320, height: 300 }}
-        key={product.name}
-        // source={{ uri: product.photos[0] }}
-        source={product.picture}
-      />
+      <ProductCardCover key={product.name} source={product.picture} />
       <Info>
         <Text variant="label">{product.name}</Text>
         <Section>
           <Rating
-            // ratingCount={product.rating}
             type="heart"
             imageSize={30}
             startingValue={product.rating}
@@ -50,8 +43,6 @@ const ProductCardView = ({ product }) => {
           />
           <SectionEnd>
             <Text variant="labelBold">{product.price}$</Text>
-            {/* <Spacer position="left" size="large"></Spacer> */}
-            {/* <Spacer position="left" size="large"></Spacer> */}
           </SectionEnd>
         </Section>
         <Address>{product.description}</Address>
