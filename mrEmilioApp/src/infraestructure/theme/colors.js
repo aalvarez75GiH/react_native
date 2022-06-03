@@ -26,4 +26,8 @@ export const colors = {
     error: "#D0421B",
     success: "#138000",
   },
+  eCommerce: {
+    cartButton: "#ffd813",
+    buyButton: "#ffa41d",
+  },
 };

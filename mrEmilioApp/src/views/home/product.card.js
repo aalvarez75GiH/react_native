@@ -10,6 +10,7 @@ import {
   Address,
   Section,
   SectionEnd,
+  ViewProductButton,
   Icon,
   BuyProductButton,
   SendToCartButton,
@@ -47,17 +48,22 @@ const ProductCardView = ({ product }) => {
         </Section>
         <Address>{product.description}</Address>
         <Spacer position="top" size="large"></Spacer>
-        <BuyProductButton>
+        <ViewProductButton>
           <Text variant="label" style={{ color: "#ffffff" }}>
+            View Product
+          </Text>
+        </ViewProductButton>
+        {/* <BuyProductButton>
+          <Text variant="label" style={{ color: "#010606" }}>
             Buy Now
           </Text>
         </BuyProductButton>
         <Spacer position="top" size="small"></Spacer>
         <SendToCartButton>
-          <Text variant="label" style={{ color: "#ffffff" }}>
+          <Text variant="label" style={{ color: "#010606" }}>
             Send to cart
           </Text>
-        </SendToCartButton>
+        </SendToCartButton> */}
       </Info>
     </ProductCardContainer>
   );

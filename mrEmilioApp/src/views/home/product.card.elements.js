@@ -41,16 +41,25 @@ export const Icon = styled.Image`
 export const BuyProductButton = styled.View`
   width: 100%;
   height: 50px;
-  background-color: ${(props) => props.theme.colors.ui.success};
+  background-color: ${(props) => props.theme.colors.eCommerce.buyButton};
   justify-content: center;
   align-items: center;
-  border-radius: 45px;
+  /* border-radius: 45px; */
 `;
 export const SendToCartButton = styled.View`
   width: 100%;
   height: 50px;
+  background-color: ${(props) => props.theme.colors.eCommerce.cartButton};
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 45px; */
+`;
+
+export const ViewProductButton = styled.View`
+  width: 40%;
+  height: 50px;
   background-color: ${(props) => props.theme.colors.brand.tertiary};
   justify-content: center;
   align-items: center;
-  border-radius: 45px;
+  margin-left: 60%;
 `;
