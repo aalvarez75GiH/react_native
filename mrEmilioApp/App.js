@@ -11,6 +11,9 @@ import { StoresView } from "./src/views/stores/stores";
 import { CartView } from "./src/views/cart/cart";
 import { theme } from "./src/infraestructure/theme";
 import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
+import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
+import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
+import { AppNavigator } from "./src/infraestructure/navigation/app.navigator";
 
 const Tab = createBottomTabNavigator();
 const Tab_icon = {
@@ -55,20 +58,25 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <ProductsContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={createScreenOptions}
-              tabBarOptions={{
-                activeTintColor: theme.colors.brand.tertiary,
-                inactiveTintColor: theme.colors.ui.secondary,
-              }}
-            >
-              <Tab.Screen name="home" component={HomeView} />
-              <Tab.Screen name="stores" component={StoresView} />
-              <Tab.Screen name="cart" component={CartView} />
-              <Tab.Screen name="account" component={AccountView} />
-            </Tab.Navigator>
-          </NavigationContainer>
+          <LocationContextProvider>
+            <StoresContextProvider>
+              <AppNavigator />
+              {/* <NavigationContainer>
+                <Tab.Navigator
+                  screenOptions={createScreenOptions}
+                  tabBarOptions={{
+                    activeTintColor: theme.colors.brand.tertiary,
+                    inactiveTintColor: theme.colors.ui.secondary,
+                  }}
+                >
+                  <Tab.Screen name="home" component={HomeView} />
+                  <Tab.Screen name="stores" component={StoresView} />
+                  <Tab.Screen name="cart" component={CartView} />
+                  <Tab.Screen name="account" component={AccountView} />
+                </Tab.Navigator>
+              </NavigationContainer> */}
+            </StoresContextProvider>
+          </LocationContextProvider>
         </ProductsContextProvider>
       </ThemeProvider>
     </>

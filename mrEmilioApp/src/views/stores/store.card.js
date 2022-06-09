@@ -27,12 +27,15 @@ const StoreCardView = ({ store }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeID,
   } = store;
 
   const ratingArray = Array.from(new Array(Math.floor(store.rating)));
 
-  const renderingRatingStars = ratingArray.map(() => {
-    return <SvgXml xml={star} width="20" height="20" />;
+  const renderingRatingStars = ratingArray.map((_, i) => {
+    return (
+      <SvgXml xml={star} width="20" height="20" key={`star-${placeID}-${i}`} />
+    );
   });
 
   return (

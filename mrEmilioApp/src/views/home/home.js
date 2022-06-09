@@ -47,7 +47,7 @@ const renderItem = ({ item }) => {
 export const HomeView = () => {
   const { products, isLoading, error, restaurants } =
     useContext(ProductsContext);
-  console.log("this is Products at home View:", products);
+  // console.log("this is Products at home View:", products);
 
   return (
     <>

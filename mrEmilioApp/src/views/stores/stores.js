@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components/native";
-import { View } from "react-native";
-import { Searchbar } from "react-native-paper";
 
+import { ActivityIndicator } from "react-native-paper";
 import { SafeArea } from "../../global_components/safe-area.component";
-import { Text } from "../../../src/infraestructure/typography/text.component";
-import { SearchContainer } from "./stores.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import StoreCardView from "./store.card";
 import { FlatList } from "react-native-gesture-handler";
 import { ProductsContext } from "../../infraestructure/services/products/products.context";
+import { StoresContext } from "../../infraestructure/services/stores/stores.context";
+import { SearchStores } from "./searchStores.component";
+import { theme } from "../../infraestructure/theme";
 
 const data = [
   {
@@ -37,8 +37,17 @@ const StoresList = styled(FlatList).attrs({
   },
 })``;
 
+const Loading = styled(ActivityIndicator)`
+  margin-left: -25px;
+`;
+const LoadingContainer = styled.View`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`;
+
 const renderItem = ({ item }) => {
-  console.log("this is Item: ", item);
+  // console.log("this is Item: ", item);
   return (
     <Spacer position="bottom" size="large">
       <StoreCardView store={item} />
@@ -46,18 +55,25 @@ const renderItem = ({ item }) => {
   );
 };
 export const StoresView = () => {
-  const { restaurants } = useContext(ProductsContext);
-  console.log("this is Restaurants at Stores View:", restaurants);
+  const { stores, isLoading } = useContext(StoresContext);
+  // console.log("this is Stores at Stores View:", stores);
   return (
     <>
       <SafeArea>
-        <SearchContainer>
-          <Searchbar />
-        </SearchContainer>
+        {isLoading && (
+          <LoadingContainer>
+            <Loading
+              animating={true}
+              color={theme.colors.ui.primary}
+              size={50}
+            />
+          </LoadingContainer>
+        )}
+        <SearchStores />
         <StoresList
-          data={restaurants}
+          data={stores}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.place_id}
         />
       </SafeArea>
     </>

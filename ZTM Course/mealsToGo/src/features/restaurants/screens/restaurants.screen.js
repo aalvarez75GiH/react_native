@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { Searchbar, ActivityIndicator } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 import styled from "styled-components/native";
-import { FlatList, View } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 
 import { RestaurantsInfoCard } from "../components/restaurants-Info-card";
 import { Spacer } from "../../../components/spacer/optimized.spacer.component";
 import { SafeArea } from "../../../components/utilities/safe-area.component";
-import { RestaurantContext } from "../../../services/restaurants/mock/restaurants.context";
 import { theme } from "../../../infraestructure/theme";
+import { RestaurantContext } from "../../../services/restaurants/mock/restaurants.context";
+import { Search } from "../components/search.component";
 
 //   ************ Styled Components ***************************
 
@@ -31,15 +32,23 @@ const LoadingContainer = styled.View`
 `;
 // *************************************************************
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
+  // console.log(navigation);
   const { restaurants, isLoading, error } = useContext(RestaurantContext);
 
   const renderItem = ({ item }) => {
-    console.log("this is Item: ", item);
     return (
-      <Spacer position="bottom" size="large">
-        <RestaurantsInfoCard restaurant={item} />
-      </Spacer>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("RestaurantDetail", {
+            restaurant: item,
+          })
+        }
+      >
+        <Spacer position="bottom" size="large">
+          <RestaurantsInfoCard restaurant={item} />
+        </Spacer>
+      </TouchableOpacity>
     );
   };
 
@@ -55,9 +64,7 @@ export const RestaurantsScreen = () => {
             />
           </LoadingContainer>
         )}
-        <SearchContainer>
-          <Searchbar />
-        </SearchContainer>
+        <Search />
         <RestaurantList
           data={restaurants}
           renderItem={renderItem}

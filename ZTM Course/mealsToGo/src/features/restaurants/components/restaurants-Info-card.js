@@ -18,24 +18,25 @@ import {
 } from "./restaurant-info-card.styles";
 
 export const RestaurantsInfoCard = ({ restaurant }) => {
-  console.log(restaurant);
-
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
     ],
-    vicinity = "100 some random street",
+    address = "100 some random street",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeID,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
-  const renderingRatingStars = ratingArray.map(() => {
-    return <SvgXml xml={star} width="20" height="20" />;
+  const renderingRatingStars = ratingArray.map((_, i) => {
+    return (
+      <SvgXml xml={star} width="20" height="20" key={`star-${placeID}-${i}`} />
+    );
   });
 
   return (
@@ -59,7 +60,7 @@ export const RestaurantsInfoCard = ({ restaurant }) => {
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{vicinity}</Address>
+        <Address>{address}</Address>
       </Info>
     </RestaurantCard>
   );
