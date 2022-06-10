@@ -21,6 +21,13 @@ const error = (theme) => `
     color: ${theme.colors.text.error};
 `;
 
+const success = (theme) => `
+  font-family: ${theme.fonts.heading};
+  font-size: ${theme.fontSizes.body};
+  font-weight: ${theme.fontWeights.bold}
+  color: ${theme.colors.text.success};
+`;
+
 const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
     font-weight: ${theme.fontWeights.bold};
@@ -43,6 +50,7 @@ const variants = {
   labelBold,
   caption,
   error,
+  success,
   hint,
 };
 

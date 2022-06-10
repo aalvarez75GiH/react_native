@@ -1,19 +1,12 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ThemeProvider } from "styled-components/native";
 
-import { HomeView } from "./src/views/home/home";
-import { AccountView } from "./src/views/account/account";
-import { StoresView } from "./src/views/stores/stores";
-import { CartView } from "./src/views/cart/cart";
 import { theme } from "./src/infraestructure/theme";
 import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
 import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
 import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
-import { AppNavigator } from "./src/infraestructure/navigation/app.navigator";
+import { Navigation } from "./src/infraestructure/navigation";
 
 const Tab = createBottomTabNavigator();
 const Tab_icon = {
@@ -60,21 +53,7 @@ export default function App() {
         <ProductsContextProvider>
           <LocationContextProvider>
             <StoresContextProvider>
-              <AppNavigator />
-              {/* <NavigationContainer>
-                <Tab.Navigator
-                  screenOptions={createScreenOptions}
-                  tabBarOptions={{
-                    activeTintColor: theme.colors.brand.tertiary,
-                    inactiveTintColor: theme.colors.ui.secondary,
-                  }}
-                >
-                  <Tab.Screen name="home" component={HomeView} />
-                  <Tab.Screen name="stores" component={StoresView} />
-                  <Tab.Screen name="cart" component={CartView} />
-                  <Tab.Screen name="account" component={AccountView} />
-                </Tab.Navigator>
-              </NavigationContainer> */}
+              <Navigation />
             </StoresContextProvider>
           </LocationContextProvider>
         </ProductsContextProvider>

@@ -16,7 +16,7 @@ import {
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 
-const StoreCardView = ({ store }) => {
+export const StoreCardView = ({ store }) => {
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -64,5 +64,3 @@ const StoreCardView = ({ store }) => {
     </StoreCardContainer>
   );
 };
-
-export default StoreCardView;

@@ -7,18 +7,19 @@ import {
   ProductCardContainer,
   ProductCardCover,
   Info,
-  Address,
+  Description,
   Section,
   SectionEnd,
   ViewProductButton,
   Icon,
   BuyProductButton,
   SendToCartButton,
+  ProductCardCoverForDetail,
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 
-export const ProductCardView = ({ product }) => {
+export const ProductCard2View = ({ product }) => {
   const {
     name = "Some Product",
     description = "Some description",
@@ -35,25 +36,18 @@ export const ProductCardView = ({ product }) => {
       <ProductCardCover key={product.name} source={product.picture} />
       <Info>
         <Text variant="label">{product.name}</Text>
+        <Spacer />
         <Section>
-          <Rating
-            type="heart"
-            imageSize={30}
-            startingValue={product.rating}
-            readonly={true}
-          />
+          <Text variant="labelBold">{product.price}$</Text>
           <SectionEnd>
-            <Text variant="labelBold">{product.price}$</Text>
+            <Text variant="success">{product.stock} in Stock</Text>
           </SectionEnd>
         </Section>
-        <Address>{product.description}</Address>
+        <Spacer />
+        <Description>{product.description}</Description>
         <Spacer position="top" size="large"></Spacer>
-        <ViewProductButton>
-          <Text variant="label" style={{ color: "#ffffff" }}>
-            View Product
-          </Text>
-        </ViewProductButton>
-        {/* <BuyProductButton>
+
+        <BuyProductButton>
           <Text variant="label" style={{ color: "#010606" }}>
             Buy Now
           </Text>
@@ -63,7 +57,7 @@ export const ProductCardView = ({ product }) => {
           <Text variant="label" style={{ color: "#010606" }}>
             Send to cart
           </Text>
-        </SendToCartButton> */}
+        </SendToCartButton>
       </Info>
     </ProductCardContainer>
   );

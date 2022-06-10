@@ -13,12 +13,24 @@ export const ProductCardCover = styled(Card.Cover)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
+export const ProductCardCoverForDetail = styled(Card.Cover)`
+  padding: ${(props) => props.theme.space[3]};
+  height: 200px;
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
 export const Info = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.caption};
+  color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+export const Description = styled.Text`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.description};
   color: ${(props) => props.theme.colors.ui.primary};
 `;
 

@@ -4,8 +4,8 @@ import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native-paper";
 import { SafeArea } from "../../global_components/safe-area.component";
 import { Spacer } from "../../global_components/optimized.spacer.component";
-import StoreCardView from "./store.card";
-import { FlatList } from "react-native-gesture-handler";
+import { StoreCardView } from "./store.card";
+import { FlatList, TouchableOpacity } from "react-native";
 import { ProductsContext } from "../../infraestructure/services/products/products.context";
 import { StoresContext } from "../../infraestructure/services/stores/stores.context";
 import { SearchStores } from "./searchStores.component";
@@ -46,17 +46,26 @@ const LoadingContainer = styled.View`
   left: 50%;
 `;
 
-const renderItem = ({ item }) => {
-  // console.log("this is Item: ", item);
-  return (
-    <Spacer position="bottom" size="large">
-      <StoreCardView store={item} />
-    </Spacer>
-  );
-};
-export const StoresView = () => {
+export const StoresView = ({ navigation }) => {
   const { stores, isLoading } = useContext(StoresContext);
-  // console.log("this is Stores at Stores View:", stores);
+
+  const renderItem = ({ item }) => {
+    // console.log("this is Item: ", item);
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("StoreDetail", {
+            store: item,
+          })
+        }
+      >
+        <Spacer position="bottom" size="large">
+          <StoreCardView store={item} />
+        </Spacer>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <>
       <SafeArea>

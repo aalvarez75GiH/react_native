@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { HomeView } from "../../../src/views/home/home";
 import { AccountView } from "../../../src/views/account/account";
-import { StoresView } from "../../../src/views/stores/stores";
+import { StoresNavigator } from "./stores.navigator";
+import { HomeNavigator } from "./home.navigator";
 import { CartView } from "../../../src/views/cart/cart";
 import { theme } from "../theme";
 
@@ -35,8 +35,8 @@ export const AppNavigator = () => {
           inactiveTintColor: theme.colors.ui.secondary,
         }}
       >
-        <Tab.Screen name="home" component={HomeView} />
-        <Tab.Screen name="stores" component={StoresView} />
+        <Tab.Screen name="home" component={HomeNavigator} />
+        <Tab.Screen name="stores" component={StoresNavigator} />
         <Tab.Screen name="cart" component={CartView} />
         <Tab.Screen name="account" component={AccountView} />
       </Tab.Navigator>

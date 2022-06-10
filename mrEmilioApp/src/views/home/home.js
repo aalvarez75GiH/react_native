@@ -7,8 +7,8 @@ import { SafeArea } from "../../global_components/safe-area.component";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { SearchContainer } from "./home.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
-import ProductCardView from "./product.card";
-import { FlatList } from "react-native-gesture-handler";
+import { ProductCardView } from "./product.card";
+import { FlatList, TouchableOpacity } from "react-native";
 import { ProductsContext } from "../../infraestructure/services/products/products.context";
 
 const data = [
@@ -37,17 +37,26 @@ const ProductList = styled(FlatList).attrs({
   },
 })``;
 
-const renderItem = ({ item }) => {
-  return (
-    <Spacer position="bottom" size="large">
-      <ProductCardView product={item} />
-    </Spacer>
-  );
-};
-export const HomeView = () => {
+export const HomeView = ({ navigation }) => {
   const { products, isLoading, error, restaurants } =
     useContext(ProductsContext);
   // console.log("this is Products at home View:", products);
+
+  const renderItem = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("ProductDetail", {
+            product: item,
+          });
+        }}
+      >
+        <Spacer position="bottom" size="large">
+          <ProductCardView product={item} />
+        </Spacer>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <>
