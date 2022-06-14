@@ -21,6 +21,50 @@ export const locations = {
       },
     ],
   },
+  athens: {
+    results: [
+      {
+        geometry: {
+          location: {
+            lng: -83.3576,
+            lat: 33.9519,
+          },
+          viewport: {
+            northeast: {
+              lat: 51.2145994302915,
+              lng: 4.418074130291502,
+            },
+            southwest: {
+              lat: 51.2119014697085,
+              lng: 4.415376169708497,
+            },
+          },
+        },
+      },
+    ],
+  },
+  atlanta: {
+    results: [
+      {
+        geometry: {
+          location: {
+            lng: -84.388,
+            lat: 33.749,
+          },
+          viewport: {
+            northeast: {
+              lat: 51.2145994302915,
+              lng: 4.418074130291502,
+            },
+            southwest: {
+              lat: 51.2119014697085,
+              lng: 4.415376169708497,
+            },
+          },
+        },
+      },
+    ],
+  },
   "san francisco": {
     results: [
       {

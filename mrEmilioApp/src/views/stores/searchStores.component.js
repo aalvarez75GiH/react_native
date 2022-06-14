@@ -11,7 +11,7 @@ export const SearchStores = () => {
   const { keyword, search } = useContext(LocationContext);
   console.log("this is keyword:", keyword);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
-  console.log(searchKeyword);
+  //   console.log(searchKeyword);
 
   return (
     <SearchContainer>

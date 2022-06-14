@@ -1,7 +1,10 @@
-import { mocks, mockImages } from "../stores/index";
+import { stores } from "./stores.data";
+import { storesMenu } from "./stores_menu.data";
+import { menus } from "./stores_menu.data";
+
 import camelize from "camelize";
 
-export const storesRequest = (location = "43.653225,-79.383186") => {
+export const storesRequestByLocation = (location = "43.653225,-79.383186") => {
   return new Promise((resolve, reject) => {
     const mock = mocks[location];
     if (!mock) {
@@ -11,17 +14,43 @@ export const storesRequest = (location = "43.653225,-79.383186") => {
   });
 };
 
-export const storesInfoTransformed = ({ results = [] }) => {
-  const mappedResult = results.map((store) => {
-    store.photos = store.photos.map((p) => {
-      return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
-    });
+export const storesRequestBySearchTerm = (searchTerm) => {
+  console.log("searchTerm:", searchTerm);
+  return new Promise((resolve, reject) => {
+    const storesMock = stores[searchTerm];
+    console.log("storesMock:", storesMock);
+    if (!storesMock) {
+      reject("not Found");
+    }
+    resolve(storesMock);
+  });
+};
+
+export const storeMenuRequestByID = (id) => {
+  return new Promise((resolve, reject) => {
+    const storeMenuMock = menus[id];
+    console.log("storesMenuMock:", storeMenuMock);
+    if (!storeMenuMock) {
+      reject("not Found");
+    }
+    resolve(storeMenuMock);
+  });
+};
+
+export const menuInfoTransformed = ({ results = [] }) => {
+  const mappedResult = results.map((menu) => {
     return {
-      ...store,
-      isOpenNow: store.opening_hours && store.opening_hours.open_now,
-      isClosedTemporarily: store.business_status === "CLOSED_TEMPORARILY",
+      ...menu,
     };
   });
-  //   console.log(camelize(mappedResult));
+  return camelize(mappedResult);
+};
+
+export const storesInfoTransformed = ({ results = [] }) => {
+  const mappedResult = results.map((store) => {
+    return {
+      ...store,
+    };
+  });
   return camelize(mappedResult);
 };

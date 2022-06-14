@@ -15,7 +15,7 @@ export const products = [
     quantity: "1",
     picture: arequipe_picture,
     rating: 4,
-    id: "0001",
+    id: "p0001",
   },
   {
     name: "Crema de leche",
@@ -27,7 +27,7 @@ export const products = [
     quantity: "1",
     picture: crema_picture,
     rating: 4,
-    id: "0002",
+    id: "p0002",
   },
   {
     name: "Suero de leche",
@@ -39,7 +39,7 @@ export const products = [
     quantity: "1",
     picture: suero_picture,
     rating: 5,
-    id: "0003",
+    id: "p0003",
   },
   {
     name: "Tequéños",
@@ -51,7 +51,7 @@ export const products = [
     quantity: "24",
     picture: tequeños_picture,
     rating: 3,
-    id: "0004",
+    id: "p0004",
   },
   {
     name: "Salsas",
@@ -62,6 +62,6 @@ export const products = [
     quantity: "3",
     picture: salsas_picture,
     rating: 2,
-    id: "0005",
+    id: "p0005",
   },
 ];

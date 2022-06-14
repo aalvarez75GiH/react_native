@@ -15,18 +15,16 @@ import {
 } from "./store.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
-
+import image from "../../../assets/los_compadres.png";
 export const StoreCardView = ({ store }) => {
+  console.log("Store in StoreCardView:", store);
   const {
-    name = "Some Restaurant",
-    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-    photos = [
-      "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-    ],
-    vicinity = "100 some random street",
-    isOpenNow = true,
+    name = "Some store",
+    address = "1380 Prince av, Athens, GA 30605",
+    work_hour = "9:00 am - 7:00 pm",
+    picture = "url",
     rating = 4,
-    isClosedTemporarily = true,
+    id = "0001",
     placeID,
   } = store;
 
@@ -40,26 +38,20 @@ export const StoreCardView = ({ store }) => {
 
   return (
     <StoreCardContainer elevation={5}>
-      <StoreCardCover key={store.name} source={{ uri: store.photos[0] }} />
+      {/* <StoreCardCover key={store.name} source={{ uri: store.picture[0] }} /> */}
+      <StoreCardCover key={store.name} source={store.picture} />
       <Info>
         <Text variant="label">{store.name}</Text>
         <Section>
           <Raiting>{renderingRatingStars}</Raiting>
           <SectionEnd>
-            {store.isClosedTemporarily && (
-              <Text variant="error">CLOSED TEMPORARILY</Text>
-            )}
-            <Spacer position="left" size="large">
-              {store.isOpenNow && (
-                <SvgXml xml={OpenOrCloseIcon} width="20" height="20" />
-              )}
-            </Spacer>
+            <Spacer position="left" size="large"></Spacer>
             <Spacer position="left" size="large">
               <Icon source={{ uri: store.icon }} />
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{store.vicinity}</Address>
+        <Address>{store.address}</Address>
       </Info>
     </StoreCardContainer>
   );

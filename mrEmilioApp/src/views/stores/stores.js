@@ -11,24 +11,6 @@ import { StoresContext } from "../../infraestructure/services/stores/stores.cont
 import { SearchStores } from "./searchStores.component";
 import { theme } from "../../infraestructure/theme";
 
-const data = [
-  {
-    name: 1,
-    id: 1,
-  },
-  {
-    name: 2,
-    id: 2,
-  },
-  {
-    name: 3,
-    id: 3,
-  },
-  {
-    name: 4,
-    id: 4,
-  },
-];
 //   ************ Styled Components ***************************
 
 const StoresList = styled(FlatList).attrs({
@@ -48,9 +30,10 @@ const LoadingContainer = styled.View`
 
 export const StoresView = ({ navigation }) => {
   const { stores, isLoading } = useContext(StoresContext);
+  console.log("Stores in stores.js:", stores);
 
   const renderItem = ({ item }) => {
-    // console.log("this is Item: ", item);
+    console.log("this is Item: ", item);
     return (
       <TouchableOpacity
         onPress={() =>

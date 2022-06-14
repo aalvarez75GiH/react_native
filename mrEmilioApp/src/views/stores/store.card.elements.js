@@ -41,3 +41,17 @@ export const Icon = styled.Image`
   width: 15px;
   height: 15px;
 `;
+
+export const ProductsToSaleContainer = styled(Card)`
+  width: 95%;
+  margin-left: 3%;
+  height: auto;
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+  padding: 10px;
+`;
+export const ProductToSale = styled.View`
+  width: 100%;
+  height: 100px;
+  background-color: #eeeeee;
+  border-radius: 15%;
+`;
