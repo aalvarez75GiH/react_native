@@ -53,17 +53,6 @@ export const ProductCardView = ({ product }) => {
             View Product
           </Text>
         </ViewProductButton>
-        {/* <BuyProductButton>
-          <Text variant="label" style={{ color: "#010606" }}>
-            Buy Now
-          </Text>
-        </BuyProductButton>
-        <Spacer position="top" size="small"></Spacer>
-        <SendToCartButton>
-          <Text variant="label" style={{ color: "#010606" }}>
-            Send to cart
-          </Text>
-        </SendToCartButton> */}
       </Info>
     </ProductCardContainer>
   );

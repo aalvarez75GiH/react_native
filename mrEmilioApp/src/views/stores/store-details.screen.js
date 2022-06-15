@@ -4,11 +4,17 @@ import { ScrollView } from "react-native-gesture-handler";
 import { SafeArea } from "../../global_components/safe-area.component";
 import { StoreCardView } from "./store.card";
 import { Spacer } from "../../global_components/optimized.spacer.component";
-import { ProductsToSaleContainer, ProductToSale } from "./store.card.elements";
+import {
+  ProductsToSaleContainer,
+  ProductToSaleTitleContainer,
+  ProductsToSaleTitle,
+  ProductMiniCardContainer,
+} from "./store.card.elements";
 import {
   storeMenuRequestByID,
   menuInfoTransformed,
 } from "../../infraestructure/services/stores/stores.services";
+import { ProductMiniCard } from "./productMiniCard";
 
 export const StoreDetailScreen = ({ route }) => {
   const { store } = route.params;
@@ -31,18 +37,12 @@ export const StoreDetailScreen = ({ route }) => {
       });
   };
 
-  //   console.log("store at storeDetailsScreen:", store);
   useEffect(() => {
     retrieveMenu(store.id);
-    // console.log(test);
   }, []);
+
   const renderingProductToSale = menu.map((product) => {
-    return (
-      <>
-        <Spacer />
-        <ProductToSale />
-      </>
-    );
+    return <ProductMiniCard product={product} />;
   });
 
   return (
@@ -51,7 +51,16 @@ export const StoreDetailScreen = ({ route }) => {
         <StoreCardView store={store} />
         <Spacer />
         <ProductsToSaleContainer elevation={5}>
-          {renderingProductToSale}
+          <Spacer />
+          <ProductToSaleTitleContainer>
+            <ProductsToSaleTitle>
+              Productos que puedes encontrar en esta tienda...
+            </ProductsToSaleTitle>
+          </ProductToSaleTitleContainer>
+          <Spacer position="bottom" size="medium" />
+          <ProductMiniCardContainer>
+            {renderingProductToSale}
+          </ProductMiniCardContainer>
         </ProductsToSaleContainer>
       </ScrollView>
     </SafeArea>

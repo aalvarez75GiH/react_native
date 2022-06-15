@@ -12,6 +12,9 @@ const defaultTextStyles = (theme) => `
 const body = (theme) => `
     font-size: ${theme.fontSizes.body};
 `;
+const description = (theme) => `
+    font-size: ${theme.fontSizes.description};
+`;
 
 const hint = (theme) => `
     font-size: ${theme.fontSizes.body};
@@ -52,6 +55,7 @@ const variants = {
   error,
   success,
   hint,
+  description,
 };
 
 export const Text = styled.Text`
