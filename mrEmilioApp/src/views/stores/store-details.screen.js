@@ -42,7 +42,7 @@ export const StoreDetailScreen = ({ route }) => {
   }, []);
 
   const renderingProductToSale = menu.map((product) => {
-    return <ProductMiniCard product={product} />;
+    return <ProductMiniCard product={product} key={product.id} />;
   });
 
   return (

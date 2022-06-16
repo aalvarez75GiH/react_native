@@ -22,6 +22,12 @@ export const Address = styled.Text`
   color: ${(props) => props.theme.colors.ui.primary};
 `;
 
+export const WorkHours = styled.Text`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+  color: ${(props) => props.theme.colors.ui.primary};
+`;
+
 export const Raiting = styled.View`
   flex-direction: row;
   padding-top: ${(props) => props.theme.space[2]};

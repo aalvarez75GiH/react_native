@@ -8,6 +8,7 @@ import {
   StoreCardCover,
   Info,
   Address,
+  WorkHours,
   Raiting,
   Section,
   SectionEnd,
@@ -43,7 +44,8 @@ export const StoreCardView = ({ store }) => {
       <Info>
         <Text variant="label">{store.name}</Text>
         <Section>
-          <Raiting>{renderingRatingStars}</Raiting>
+          <WorkHours variant="label">{store.workHour}</WorkHours>
+          {/* <Raiting>{renderingRatingStars}</Raiting> */}
           <SectionEnd>
             <Spacer position="left" size="large"></Spacer>
             <Spacer position="left" size="large">

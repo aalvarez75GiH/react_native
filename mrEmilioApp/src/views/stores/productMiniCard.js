@@ -12,7 +12,7 @@ import {
 export const ProductMiniCard = ({ product }) => {
   return (
     <>
-      <MiniCardContainer>
+      <MiniCardContainer key={product.id}>
         <MiniCard>
           <ProductImage source={product.picture} />
         </MiniCard>
