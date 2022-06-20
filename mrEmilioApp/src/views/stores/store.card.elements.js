@@ -3,6 +3,7 @@ import { Card } from "react-native-paper";
 import { Image } from "react-native";
 import { Text } from "../../infraestructure/typography/text.component";
 
+// **************** StoreCard
 export const StoreCardContainer = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   width: 95%;
@@ -80,6 +81,7 @@ export const ProductMiniCardContainer = styled.View`
   flex-wrap: wrap;
 `;
 
+// ************* ProductMiniCard
 export const ProductMiniCard = styled.View`
   width: 30%;
   height: 115px;
@@ -118,8 +120,20 @@ export const ProductName = styled.Text`
   color: ${(props) => props.theme.colors.ui.primary};
 `;
 
-// export const ProductInfoContainer = styled.View`
-//   padding: 10px;
-//   width: 80%;
-//   height: auto;
-// `;
+// **************** StoreCardDetails
+
+export const MapButton = styled.View`
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.brand.tertiary};
+`;
+
+export const MapButtonText = styled.Text`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+  color: ${(props) => props.theme.colors.ui.quaternary};
+`;

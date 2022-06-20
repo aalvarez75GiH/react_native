@@ -18,7 +18,7 @@ export const storesRequestBySearchTerm = (searchTerm) => {
   console.log("searchTerm:", searchTerm);
   return new Promise((resolve, reject) => {
     const storesMock = stores[searchTerm];
-    console.log("storesMock:", storesMock);
+    // console.log("storesMock:", storesMock);
     if (!storesMock) {
       reject("not Found");
     }
@@ -29,7 +29,7 @@ export const storesRequestBySearchTerm = (searchTerm) => {
 export const storeMenuRequestByID = (id) => {
   return new Promise((resolve, reject) => {
     const storeMenuMock = menus[id];
-    console.log("storesMenuMock:", storeMenuMock);
+    // console.log("storesMenuMock:", storeMenuMock);
     if (!storeMenuMock) {
       reject("not Found");
     }

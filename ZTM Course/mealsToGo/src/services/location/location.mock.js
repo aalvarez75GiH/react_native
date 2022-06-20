@@ -21,6 +21,28 @@ export const locations = {
       },
     ],
   },
+  athens: {
+    results: [
+      {
+        geometry: {
+          location: {
+            lng: -83.31748,
+            lat: 33.91138,
+          },
+          viewport: {
+            northeast: {
+              lat: 33.88758823029149,
+              lng: -83.6194830697085,
+            },
+            southwest: {
+              lat: 33.88489026970849,
+              lng: -83.6221810302915,
+            },
+          },
+        },
+      },
+    ],
+  },
   "san francisco": {
     results: [
       {

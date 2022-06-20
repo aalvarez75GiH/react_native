@@ -1,12 +1,14 @@
 import React from "react";
-import { View } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import MapView from "react-native-maps";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SafeArea } from "../../components/utilities/safe-area.component";
 import { Text } from "../../components/typography/text.component";
+import { MapScreen } from "../../features/map/screens/map.screen";
 const Tab = createBottomTabNavigator();
 
 const Tab_icon = {
@@ -20,16 +22,6 @@ const SettingsScreen = () => {
     <SafeArea>
       <View>
         <Text>I am settings Screen</Text>
-      </View>
-    </SafeArea>
-  );
-};
-
-const MapScreen = () => {
-  return (
-    <SafeArea>
-      <View>
-        <Text>I am Map Screen</Text>
       </View>
     </SafeArea>
   );

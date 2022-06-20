@@ -13,8 +13,8 @@ export const stores = {
         rating: 4,
         geometry: {
           location: {
-            lat: 33.96413,
-            lng: -83.40101,
+            lat: 33.96411434590042,
+            lng: -83.40103261362604,
           },
         },
         picture: compadres,
@@ -28,8 +28,8 @@ export const stores = {
         rating: 4,
         geometry: {
           location: {
-            lat: 33.96413,
-            lng: -83.40101,
+            lat: 33.88968282825724,
+            lng: -83.41279571705157,
           },
         },
         picture: losPrimos,
@@ -43,8 +43,8 @@ export const stores = {
         rating: 4,
         geometry: {
           location: {
-            lat: 33.96413,
-            lng: -83.40101,
+            lat: 33.961538896889834,
+            lng: -83.38393134592857,
           },
         },
         picture: CostaDeJalisco,
@@ -58,8 +58,8 @@ export const stores = {
         rating: 4,
         geometry: {
           location: {
-            lat: 33.96413,
-            lng: -83.40101,
+            lat: 33.981892617749416,
+            lng: -83.36215765198662,
           },
         },
         picture: LosPlebes,
@@ -67,14 +67,14 @@ export const stores = {
         place_id: "s0004",
       },
       {
-        name: "Supermarket Plaza Mexicana",
+        name: "Supermarket El Bajio",
         address: "1380 Prince av, Athens, GA 30605",
         work_hour: "9:00 am - 7:00 pm",
         rating: 4,
         geometry: {
           location: {
-            lat: 33.96413,
-            lng: -83.40101,
+            lat: 33.99449948058021,
+            lng: -83.38108649368053,
           },
         },
         picture: LaPLaza,

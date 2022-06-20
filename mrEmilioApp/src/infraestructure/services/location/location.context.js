@@ -11,7 +11,6 @@ export const LocationContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const onSearch = (searchKeyword) => {
-    console.log(searchKeyword);
     setIsLoading(true);
     setKeyword(searchKeyword);
   };
@@ -25,12 +24,11 @@ export const LocationContextProvider = ({ children }) => {
       .then((res) => {
         setIsLoading(false);
         setLocation(res);
-        console.log(res);
+        console.log("location that is shared:", res);
       })
       .catch((err) => {
         setIsLoading(false);
         setError(err);
-        console.log("this is the error:", err);
       });
   }, [keyword]);
 

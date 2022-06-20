@@ -25,7 +25,7 @@ export const LocationContextProvider = ({ children }) => {
       .then((res) => {
         setIsLoading(false);
         setLocation(res);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         setIsLoading(false);

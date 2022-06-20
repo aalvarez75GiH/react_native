@@ -1,5 +1,6 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
+import { TouchableOpacity } from "react-native";
 
 import star from "../../../assets/star";
 import OpenOrCloseIcon from "../../../assets/open_Icon";
@@ -12,12 +13,14 @@ import {
   Raiting,
   Section,
   SectionEnd,
-  Icon,
+  MapButton,
+  MapButtonText,
 } from "./store.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 import image from "../../../assets/los_compadres.png";
-export const StoreCardView = ({ store }) => {
+
+export const StoreCardDetailsView = ({ store, navigation }) => {
   const {
     name = "Some store",
     address = "1380 Prince av, Athens, GA 30605",
@@ -43,12 +46,18 @@ export const StoreCardView = ({ store }) => {
         <Text variant="label">{store.name}</Text>
         <Section>
           <WorkHours variant="label">{store.workHour}</WorkHours>
-
           <SectionEnd>
-            <Spacer position="left" size="large"></Spacer>
-            <Spacer position="left" size="large">
-              <Icon source={{ uri: store.icon }} />
-            </Spacer>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Map", {
+                  store: store,
+                })
+              }
+            >
+              <MapButton>
+                <MapButtonText variant="label">Ver en Mapa</MapButtonText>
+              </MapButton>
+            </TouchableOpacity>
           </SectionEnd>
         </Section>
         <Address>{store.address}</Address>

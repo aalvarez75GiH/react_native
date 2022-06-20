@@ -30,15 +30,15 @@ const LoadingContainer = styled.View`
 
 export const StoresView = ({ navigation }) => {
   const { stores, isLoading } = useContext(StoresContext);
-  console.log("Stores in stores.js:", stores);
+  // console.log("Stores in stores.js:", stores);
 
   const renderItem = ({ item }) => {
-    console.log("this is Item: ", item);
     return (
       <TouchableOpacity
         onPress={() =>
           navigation.navigate("StoreDetail", {
             store: item,
+            navigation: navigation,
           })
         }
       >

@@ -3,6 +3,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { SafeArea } from "../../global_components/safe-area.component";
 import { StoreCardView } from "./store.card";
+import { StoreCardDetailsView } from "./store.card.details";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import {
   ProductsToSaleContainer,
@@ -17,7 +18,7 @@ import {
 import { ProductMiniCard } from "./productMiniCard";
 
 export const StoreDetailScreen = ({ route }) => {
-  const { store } = route.params;
+  const { store, navigation } = route.params;
   const [isLoading, setIsLoading] = useState(false);
   const [menu, setMenu] = useState([]);
   const [error, setError] = useState(null);
@@ -48,13 +49,13 @@ export const StoreDetailScreen = ({ route }) => {
   return (
     <SafeArea>
       <ScrollView>
-        <StoreCardView store={store} />
+        <StoreCardDetailsView store={store} navigation={navigation} />
         <Spacer />
         <ProductsToSaleContainer elevation={5}>
           <Spacer />
           <ProductToSaleTitleContainer>
             <ProductsToSaleTitle>
-              Productos que puedes encontrar en esta tienda...
+              Productos que puedes encontrar en esta tienda
             </ProductsToSaleTitle>
           </ProductToSaleTitleContainer>
           <Spacer position="bottom" size="medium" />
