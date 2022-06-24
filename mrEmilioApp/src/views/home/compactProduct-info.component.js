@@ -24,14 +24,14 @@ const Item = styled.View`
 
 const isAndroid = Platform.OS === "android";
 
-export const CompactStoreInfo = ({ store, isMap }) => {
-  const Image = isAndroid && isMap ? CompactWebView : CompactImage;
-  console.log("store at compact: ", store);
+export const CompactProductInfo = ({ product, isHome }) => {
+  //   const Image = isAndroid && isHome ? CompactWebView : CompactImage;
+  const Image = CompactImage;
   return (
     <Item>
-      <Image source={store.picture} />
+      <Image source={product.picture} />
       <Text center variant="caption" numberOfLines={3}>
-        {store.name}
+        {product.name}
       </Text>
     </Item>
   );

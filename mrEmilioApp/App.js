@@ -6,6 +6,7 @@ import { theme } from "./src/infraestructure/theme";
 import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
 import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
 import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
+import { FavouritesContextProvider } from "./src/infraestructure/services/favourites/favourites.context";
 import { Navigation } from "./src/infraestructure/navigation";
 
 const Tab = createBottomTabNavigator();
@@ -50,13 +51,15 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <ProductsContextProvider>
-          <LocationContextProvider>
-            <StoresContextProvider>
-              <Navigation />
-            </StoresContextProvider>
-          </LocationContextProvider>
-        </ProductsContextProvider>
+        <FavouritesContextProvider>
+          <ProductsContextProvider>
+            <LocationContextProvider>
+              <StoresContextProvider>
+                <Navigation />
+              </StoresContextProvider>
+            </LocationContextProvider>
+          </ProductsContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
     </>
   );

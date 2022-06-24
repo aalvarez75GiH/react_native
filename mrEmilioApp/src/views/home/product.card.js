@@ -17,6 +17,7 @@ import {
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
+import { FavouriteComponent } from "../../global_components/favourites/favourite.component";
 
 export const ProductCardView = ({ product }) => {
   const {
@@ -32,6 +33,7 @@ export const ProductCardView = ({ product }) => {
 
   return (
     <ProductCardContainer elevation={5}>
+      <FavouriteComponent product={product} />
       <ProductCardCover key={product.name} source={product.picture} />
       <Info>
         <Text variant="label">{product.name}</Text>
