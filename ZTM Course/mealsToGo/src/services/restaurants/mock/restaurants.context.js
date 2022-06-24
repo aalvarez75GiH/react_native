@@ -13,7 +13,7 @@ export const RestaurantContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
-  console.log("this is location Context:", location);
+  // console.log("this is location Context:", location);
 
   const retrieveRestaurants = (loc) => {
     setIsLoading(true);
@@ -34,7 +34,7 @@ export const RestaurantContextProvider = ({ children }) => {
   useEffect(() => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`;
-      console.log("this is location string:", locationString);
+      // console.log("this is location string:", locationString);
       retrieveRestaurants(locationString);
     }
   }, [location]);

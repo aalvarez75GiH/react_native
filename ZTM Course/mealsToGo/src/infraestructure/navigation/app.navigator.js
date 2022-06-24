@@ -8,7 +8,8 @@ import MapView from "react-native-maps";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SafeArea } from "../../components/utilities/safe-area.component";
 import { Text } from "../../components/typography/text.component";
-import { MapScreen } from "../../features/map/screens/map.screen";
+// import { MapScreen } from "../../features/map/screens/map.screen";
+import { MapNavigator } from "./map.navigator";
 const Tab = createBottomTabNavigator();
 
 const Tab_icon = {
@@ -47,7 +48,7 @@ export const AppNavigator = () => {
         }}
       >
         <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Map" component={MapNavigator} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
