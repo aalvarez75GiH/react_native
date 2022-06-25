@@ -14,24 +14,6 @@ import { Search } from "./searchProducts.component";
 import { FavouritesContext } from "../../infraestructure/services/favourites/favourites.context";
 import { FavouritesBar } from "../../global_components/favourites/favourites-bar.component";
 
-const data = [
-  {
-    name: 1,
-    id: 1,
-  },
-  {
-    name: 2,
-    id: 2,
-  },
-  {
-    name: 3,
-    id: 3,
-  },
-  {
-    name: 4,
-    id: 4,
-  },
-];
 //   ************ Styled Components ***************************
 
 const ProductList = styled(FlatList).attrs({
@@ -71,7 +53,7 @@ export const HomeView = ({ navigation }) => {
   return (
     <>
       <SafeArea>
-        <Search onFavouritesToggle={onFavouritesToggle} isToggled />
+        <Search onFavouritesToggle={onFavouritesToggle} isToggled={isToggled} />
 
         {isToggled && (
           <FavouritesBar
