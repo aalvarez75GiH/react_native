@@ -9,6 +9,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const onLogin = (email, password) => {
     console.log("email and password:", email, password);
@@ -21,6 +22,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       })
       .catch((e) => {
         setIsLoading(false);
+        setIsAuthenticated(false);
         setError(e.toString());
       });
   };
