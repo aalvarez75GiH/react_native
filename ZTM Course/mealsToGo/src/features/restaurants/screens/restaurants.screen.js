@@ -11,6 +11,7 @@ import { RestaurantContext } from "../../../services/restaurants/mock/restaurant
 import { Search } from "../components/search.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 //   ************ Styled Components ***************************
 
@@ -39,6 +40,8 @@ export const RestaurantsScreen = ({ navigation }) => {
   // console.log(navigation);
   const { restaurants, isLoading, error } = useContext(RestaurantContext);
   const { favourites } = useContext(FavouritesContext);
+  const { user } = useContext(AuthenticationContext);
+  console.log("User:", user);
   const [isToggled, setIsToggled] = useState(false);
 
   const onFavouritesToggle = () => {

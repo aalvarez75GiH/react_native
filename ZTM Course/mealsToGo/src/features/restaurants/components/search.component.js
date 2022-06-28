@@ -15,10 +15,6 @@ export const Search = ({ onFavouritesToggle, isToggled }) => {
     setSearchKeyword(keyword);
   }, [keyword]);
 
-  const handlingIconPressing = () => {
-    console.log("they are pressing me...");
-  };
-
   return (
     <SearchContainer>
       <Searchbar

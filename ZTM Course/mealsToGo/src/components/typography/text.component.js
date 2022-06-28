@@ -17,6 +17,10 @@ const hint = (theme) => `
     font-size: ${theme.fontSizes.body};
 `;
 
+const big_title = (theme) => `
+    font-size: ${theme.fontSizes.big_title};
+`;
+
 const error = (theme) => `
     color: ${theme.colors.text.error};
 `;
@@ -38,6 +42,7 @@ const variants = {
   caption,
   error,
   hint,
+  big_title,
 };
 
 export const Text = styled.Text`
