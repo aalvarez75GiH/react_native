@@ -1,6 +1,6 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import { NavigationContainer } from "@react-navigation/native";
 
 import { AccountView } from "../../../src/views/account/account";
 import { StoresNavigator } from "./stores.navigator";
@@ -27,19 +27,19 @@ const createScreenOptions = ({ route }) => {
 
 export const AppNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={createScreenOptions}
-        tabBarOptions={{
-          activeTintColor: theme.colors.brand.tertiary,
-          inactiveTintColor: theme.colors.ui.secondary,
-        }}
-      >
-        <Tab.Screen name="home" component={HomeNavigator} />
-        <Tab.Screen name="stores" component={StoresNavigator} />
-        <Tab.Screen name="cart" component={CartView} />
-        <Tab.Screen name="account" component={AccountView} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    <Tab.Navigator
+      screenOptions={createScreenOptions}
+      tabBarOptions={{
+        activeTintColor: theme.colors.brand.tertiary,
+        inactiveTintColor: theme.colors.ui.secondary,
+      }}
+    >
+      <Tab.Screen name="home" component={HomeNavigator} />
+      <Tab.Screen name="stores" component={StoresNavigator} />
+      <Tab.Screen name="cart" component={CartView} />
+      <Tab.Screen name="account" component={AccountView} />
+    </Tab.Navigator>
+    // </NavigationContainer>
   );
 };

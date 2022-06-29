@@ -35,6 +35,9 @@ const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
     font-weight: ${theme.fontWeights.bold};
 `;
+const big_title = (theme) => `
+    font-size: ${theme.fontSizes.big_title};
+`;
 
 const label = (theme) => `
     font-family: ${theme.fonts.heading};
@@ -56,6 +59,7 @@ const variants = {
   success,
   hint,
   description,
+  big_title,
 };
 
 export const Text = styled.Text`

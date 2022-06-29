@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View } from "react-native";
 import { Searchbar } from "react-native-paper";
@@ -23,16 +23,13 @@ const ProductList = styled(FlatList).attrs({
 })``;
 
 export const HomeView = ({ navigation }) => {
-  const { products, isLoading, error, restaurants } =
-    useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const { favourites } = useContext(FavouritesContext);
   const [isToggled, setIsToggled] = useState(false);
 
   const onFavouritesToggle = () => {
     setIsToggled(!isToggled);
   };
-
-  console.log("isToggled:", isToggled);
 
   const renderItem = ({ item }) => {
     return (

@@ -7,7 +7,28 @@ import { ProductsContextProvider } from "./src/infraestructure/services/products
 import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
 import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
 import { FavouritesContextProvider } from "./src/infraestructure/services/favourites/favourites.context";
+import { AuthenticationContextProvider } from "./src/infraestructure/services/authentication/authentication.context";
 import { Navigation } from "./src/infraestructure/navigation";
+
+// ***************** Firebase configuration
+import * as firebase from "firebase";
+
+// import { initializeApp } from "firebase/app";
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBDN5vXGx2lpYCOlm7iihV79dsVzFrurjc",
+  authDomain: "mealstogo-64385.firebaseapp.com",
+  projectId: "mealstogo-64385",
+  storageBucket: "mealstogo-64385.appspot.com",
+  messagingSenderId: "425550156227",
+  appId: "1:425550156227:web:3c6adede902217b47b6d76",
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+// ***************** Firebase configuration (END)
 
 const Tab = createBottomTabNavigator();
 const Tab_icon = {
@@ -51,15 +72,17 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FavouritesContextProvider>
-          <ProductsContextProvider>
-            <LocationContextProvider>
-              <StoresContextProvider>
-                <Navigation />
-              </StoresContextProvider>
-            </LocationContextProvider>
-          </ProductsContextProvider>
-        </FavouritesContextProvider>
+        <AuthenticationContextProvider>
+          <FavouritesContextProvider>
+            <ProductsContextProvider>
+              <LocationContextProvider>
+                <StoresContextProvider>
+                  <Navigation />
+                </StoresContextProvider>
+              </LocationContextProvider>
+            </ProductsContextProvider>
+          </FavouritesContextProvider>
+        </AuthenticationContextProvider>
       </ThemeProvider>
     </>
   );
