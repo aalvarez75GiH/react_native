@@ -2,9 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { ThemeProvider } from "styled-components/native";
 
 import { theme } from "./src/infraestructure/theme";
-import { RestaurantContextProvider } from "./src/services/restaurants/mock/restaurants.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
+
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 import { Navigation } from "./src/infraestructure/navigation";
 import {
@@ -13,7 +11,7 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-// ***************** Firebase
+// ***************** Firebase configuration
 import * as firebase from "firebase";
 
 // import { initializeApp } from "firebase/app";
@@ -50,13 +48,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantContextProvider>
-                <Navigation />
-              </RestaurantContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
     </>

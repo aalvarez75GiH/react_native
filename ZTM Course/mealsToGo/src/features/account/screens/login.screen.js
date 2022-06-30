@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { ActivityIndicator } from "react-native-paper";
 
 import image from "../../../../assets/home_bg.jpg";
 import { Spacer } from "../../../components/spacer/optimized.spacer.component";
@@ -19,7 +20,7 @@ export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { onLogin, error } = useContext(AuthenticationContext);
+  const { onLogin, error, isLoading } = useContext(AuthenticationContext);
 
   console.log(email, password);
 
@@ -44,7 +45,6 @@ export const LoginScreen = ({ navigation }) => {
           textContentType="password"
           secureTextEntry
           autoCapitalize="none"
-          secure
           onChangeText={(value) => setPassword(value)}
         />
         <Spacer size="medium" />
@@ -53,13 +53,17 @@ export const LoginScreen = ({ navigation }) => {
             <Text variant="error">{error}</Text>
           </ErrorContainer>
         )}
-        <AuthButton
-          icon="lock-open-outline"
-          mode="contained"
-          onPress={() => onLogin(email, password)}
-        >
-          Login
-        </AuthButton>
+        {!isLoading ? (
+          <AuthButton
+            icon="lock-open-outline"
+            mode="contained"
+            onPress={() => onLogin(email, password)}
+          >
+            Login
+          </AuthButton>
+        ) : (
+          <ActivityIndicator animating={true} color={theme.colors.ui.primary} />
+        )}
       </AccountContainer>
       <Spacer size="large">
         <BackButton mode="contained" onPress={() => navigation.goBack()}>

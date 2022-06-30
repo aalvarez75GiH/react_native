@@ -1,8 +1,85 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { ActivityIndicator } from "react-native-paper";
 
 import image from "../../../../assets/home_bg.jpg";
-import { AccountBackground } from "../components/account.styles";
+import { Spacer } from "../../../components/spacer/optimized.spacer.component";
+import { theme } from "../../../infraestructure/theme";
+import { Text } from "../../../components/typography/text.component";
+import {
+  AccountBackground,
+  AccountCover,
+  AccountContainer,
+  AuthButton,
+  AuthInput,
+  BackButton,
+  ErrorContainer,
+} from "../components/account.styles";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
-export const RegisterScreen = () => {
-  return <AccountBackground></AccountBackground>;
+export const RegisterScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+
+  const { onRegister, error, isLoading } = useContext(AuthenticationContext);
+
+  console.log(email, password, repeatedPassword);
+
+  return (
+    <AccountBackground>
+      <AccountCover />
+      <Text variant="big_title">Meals To Go</Text>
+      <AccountContainer>
+        <Spacer size="medium" />
+        <AuthInput
+          label="E-mail"
+          value={email}
+          textContentType={"emailAddress"}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          onChangeText={(value) => setEmail(value)}
+        />
+        <Spacer size="medium" />
+        <AuthInput
+          label="Password"
+          value={password}
+          textContentType="password"
+          secureTextEntry
+          autoCapitalize="none"
+          onChangeText={(value) => setPassword(value)}
+        />
+        <Spacer size="medium" />
+        <AuthInput
+          label="Repeat Password"
+          value={repeatedPassword}
+          textContentType="password"
+          secureTextEntry
+          autoCapitalize="none"
+          onChangeText={(value) => setRepeatedPassword(value)}
+        />
+        <Spacer size="medium" />
+        {error && (
+          <ErrorContainer>
+            <Text variant="error">{error}</Text>
+          </ErrorContainer>
+        )}
+        {!isLoading ? (
+          <AuthButton
+            icon="email"
+            mode="contained"
+            onPress={() => onRegister(email, password, repeatedPassword)}
+          >
+            Register
+          </AuthButton>
+        ) : (
+          <ActivityIndicator animating={true} color={theme.colors.ui.primary} />
+        )}
+      </AccountContainer>
+      <Spacer size="large">
+        <BackButton mode="contained" onPress={() => navigation.goBack()}>
+          Back
+        </BackButton>
+      </Spacer>
+    </AccountBackground>
+  );
 };
