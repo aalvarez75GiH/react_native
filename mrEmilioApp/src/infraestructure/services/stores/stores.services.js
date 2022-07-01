@@ -15,7 +15,6 @@ export const storesRequestByLocation = (location = "43.653225,-79.383186") => {
 };
 
 export const storesRequestBySearchTerm = (searchTerm) => {
-  console.log("searchTerm:", searchTerm);
   return new Promise((resolve, reject) => {
     const storesMock = stores[searchTerm];
     // console.log("storesMock:", storesMock);

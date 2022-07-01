@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import { ScrollView, TouchableOpacity } from "react-native";
 
-// import { CompactStoreInfo } from "../../views/stores/compact.store-info.component";
 import { CompactProductInfo } from "../../views/home/compactProduct-info.component";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import { Text } from "../../infraestructure/typography/text.component";

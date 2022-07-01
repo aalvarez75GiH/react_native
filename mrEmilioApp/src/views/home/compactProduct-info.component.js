@@ -4,12 +4,6 @@ import { WebView } from "react-native-webview";
 import { Platform } from "react-native";
 import { Text } from "../../infraestructure/typography/text.component";
 
-const CompactWebView = styled(WebView)`
-  border-radius: 10px;
-  width: 120px;
-  height: 100px;
-`;
-
 const CompactImage = styled.Image`
   border-radius: 10px;
   width: 120px;
@@ -25,7 +19,6 @@ const Item = styled.View`
 const isAndroid = Platform.OS === "android";
 
 export const CompactProductInfo = ({ product, isHome }) => {
-  //   const Image = isAndroid && isHome ? CompactWebView : CompactImage;
   const Image = CompactImage;
   return (
     <Item>

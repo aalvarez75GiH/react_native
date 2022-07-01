@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 import styled from "styled-components/native";
-import { View } from "react-native";
-import { Text } from "../../infraestructure/typography/text.component";
-import { SafeArea } from "../../global_components/safe-area.component";
+import { Button } from "react-native";
 
+import { SafeArea } from "../../global_components/safe-area.component";
+import { AuthenticationContext } from "../../infraestructure/services/authentication/authentication.context";
+import { AccountContainer } from "./account.elements";
+import { Text } from "../../infraestructure/typography/text.component";
 //   ************ Styled Components ***************************
-const AccountContainer = styled.View`
-  flex: 1;
-  background-color: ${({ theme }) => theme.colors.brand.muted};
-`;
 
 export const AccountView = () => {
+  const { onLogOut, response } = useContext(AuthenticationContext);
+  // console.log("this is Response at Account View:", response);
+  // console.log("this is user email at Account View:", response.user.email);
   return (
-    <>
-      <SafeArea>
-        <AccountContainer>
-          <Text variant="label">I am Account View</Text>
-        </AccountContainer>
-      </SafeArea>
-    </>
+    <SafeArea>
+      <AccountContainer>
+        <Text>{response.email}</Text>
+        <Button title="Sign out" onPress={() => onLogOut()} />
+      </AccountContainer>
+    </SafeArea>
   );
 };

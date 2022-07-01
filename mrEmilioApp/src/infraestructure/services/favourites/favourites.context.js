@@ -1,44 +1,53 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { AuthenticationContext } from "../authentication/authentication.context";
 export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
+  const { response } = useContext(AuthenticationContext);
 
-  const saveFavourites = async (value) => {
+  useEffect(() => {
+    if (response && response.uid) {
+      loadFavourites(response.uid);
+    }
+  }, [response]);
+
+  useEffect(() => {
+    if (response && response.uid && favourites.length) {
+      console.log("go by save useEffect...");
+      saveFavourites(favourites, response.uid);
+    }
+  }, [favourites, response]);
+
+  const saveFavourites = async (value, uid) => {
+    // console.log("go by here...");
+    // console.log(response);
+    console.log("uid:", uid);
     try {
       const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem("@favourites", jsonValue);
+      await AsyncStorage.setItem(`@favourites-${uid}`, jsonValue);
     } catch (e) {
       console.log("error saving:", e);
       // saving error
     }
   };
 
-  const loadFavourites = async () => {
+  const loadFavourites = async (uid) => {
     try {
-      const jsonValue = await AsyncStorage.getItem("@favourites");
+      const jsonValue = await AsyncStorage.getItem(`@favourites-${uid}`);
       if (jsonValue !== null) {
         setFavourites(JSON.parse(jsonValue));
       }
-      //   return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {
       console.log("error loading:", e);
-      // error reading value
     }
   };
 
-  useEffect(() => {
-    loadFavourites();
-  }, []);
-
-  useEffect(() => {
-    saveFavourites(favourites);
-  }, [favourites]);
-
   const addToFavourites = (product) => {
     setFavourites([...favourites, product]);
+    saveFavourites(favourites, response.uid);
   };
 
   const removeFromFavourites = (product) => {

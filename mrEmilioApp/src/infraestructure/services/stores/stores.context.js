@@ -35,7 +35,6 @@ export const StoresContextProvider = ({ children }) => {
   useEffect(() => {
     if (location) {
       const locationToString = `${location.lat},${location.lng}`;
-      console.log(locationToString);
       retrieveStores(locationToString);
     }
   }, [location]);

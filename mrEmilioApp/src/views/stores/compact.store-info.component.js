@@ -26,7 +26,7 @@ const isAndroid = Platform.OS === "android";
 
 export const CompactStoreInfo = ({ store, isMap }) => {
   const Image = isAndroid && isMap ? CompactWebView : CompactImage;
-  console.log("store at compact: ", store);
+  //   console.log("store at compact: ", store);
   return (
     <Item>
       <Image source={store.picture} />

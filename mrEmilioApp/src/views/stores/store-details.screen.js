@@ -28,7 +28,7 @@ export const StoreDetailScreen = ({ route }) => {
     storeMenuRequestByID(id)
       .then(menuInfoTransformed)
       .then((menuResult) => {
-        console.log("menu result:", menuResult);
+        // console.log("menu result:", menuResult);
         setIsLoading(false);
         setMenu(menuResult);
       })

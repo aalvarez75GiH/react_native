@@ -13,11 +13,10 @@ const FavouriteButton = styled(TouchableOpacity)`
 `;
 
 export const FavouriteComponent = ({ product }) => {
-  //   console.log(restaurant);
   const { favourites, addToFavourites, removeFromFavourites } =
     useContext(FavouritesContext);
 
-  console.log(favourites);
+  //   console.log(favourites);
 
   const isFavourite = favourites.find((r) => r.id === product.id);
   return (

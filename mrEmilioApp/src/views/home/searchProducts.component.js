@@ -7,24 +7,12 @@ const SearchContainer = styled.View`
 `;
 
 export const Search = ({ onFavouritesToggle, isToggled }) => {
-  console.log("this is isToggled:", isToggled);
-  //   const handlingIconPressing = () => {
-  //     console.log("they are pressing me...");
-  //   };
-
   return (
     <SearchContainer>
       <Searchbar
         icon={isToggled ? "heart" : "heart-outline"}
         onIconPress={onFavouritesToggle}
         placeholder="search for a product"
-        // value={searchKeyword}
-        // onSubmitEditing={() => {
-        //   search(searchKeyword);
-        // }}
-        // onChangeText={(text) => {
-        //   setSearchKeyword(text);
-        // }}
       />
     </SearchContainer>
   );

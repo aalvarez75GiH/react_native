@@ -1,8 +1,6 @@
 import React from "react";
 import { Rating } from "react-native-ratings";
 
-import myImage from "../../../assets/pictures/suero.jpg";
-import { theme } from "../../infraestructure/theme";
 import {
   ProductCardContainer,
   ProductCardCover,
@@ -11,9 +9,6 @@ import {
   Section,
   SectionEnd,
   ViewProductButton,
-  Icon,
-  BuyProductButton,
-  SendToCartButton,
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";

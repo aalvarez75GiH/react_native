@@ -3,12 +3,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ThemeProvider } from "styled-components/native";
 
 import { theme } from "./src/infraestructure/theme";
-import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
-import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
-import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
-import { FavouritesContextProvider } from "./src/infraestructure/services/favourites/favourites.context";
+
 import { AuthenticationContextProvider } from "./src/infraestructure/services/authentication/authentication.context";
 import { Navigation } from "./src/infraestructure/navigation";
+
+// import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
+// import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
+// import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
+// import { FavouritesContextProvider } from "./src/infraestructure/services/favourites/favourites.context";
 
 // ***************** Firebase configuration
 import * as firebase from "firebase";
@@ -73,15 +75,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <ProductsContextProvider>
-              <LocationContextProvider>
-                <StoresContextProvider>
-                  <Navigation />
-                </StoresContextProvider>
-              </LocationContextProvider>
-            </ProductsContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
     </>

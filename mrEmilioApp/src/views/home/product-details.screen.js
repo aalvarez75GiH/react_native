@@ -8,7 +8,6 @@ import { ProductCard2View } from "./product.card_2";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 
 export const ProductDetailScreen = ({ route }) => {
-  // console.log("route.params:", route.params);
   const { product } = route.params;
   return (
     <SafeArea>
