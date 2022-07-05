@@ -1,6 +1,9 @@
 import styled from "styled-components/native";
 import { View, ImageBackground } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import { Platform } from "react-native";
+
+const detect = Platform.OS === "android";
 
 import { colors } from "../../../infraestructure/theme/colors";
 
@@ -47,4 +50,12 @@ export const ErrorContainer = styled.View`
   align-self: center;
   margin-top: ${(props) => props.theme.space[2]};
   margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
+export const AnimationWrapper = styled.View`
+  width: 95%;
+  height: 40%;
+  position: absolute;
+  top: 20px;
+  padding: ${(props) => props.theme.space[2]};
 `;

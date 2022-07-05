@@ -10,11 +10,8 @@ import {
   Description,
   Section,
   SectionEnd,
-  ViewProductButton,
-  Icon,
   BuyProductButton,
   SendToCartButton,
-  ProductCardCoverForDetail,
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";

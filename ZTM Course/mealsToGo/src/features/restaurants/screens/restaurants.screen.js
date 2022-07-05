@@ -12,18 +12,10 @@ import { Search } from "../components/search.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { RestaurantList } from "../components/restaurant-list.styles";
+import { FadeInView } from "../../../components/animations/fade.animation";
 
 //   ************ Styled Components ***************************
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
-
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
 
 const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
@@ -37,15 +29,12 @@ const LoadingContainer = styled.View`
 // *************************************************************
 
 export const RestaurantsScreen = ({ navigation }) => {
-  // console.log(navigation);
-  const { restaurants, isLoading, error } = useContext(RestaurantContext);
+  const { restaurants, isLoading } = useContext(RestaurantContext);
   const { favourites } = useContext(FavouritesContext);
-  const { user } = useContext(AuthenticationContext);
-  console.log("User:", user);
+
   const [isToggled, setIsToggled] = useState(false);
 
   const onFavouritesToggle = () => {
-    // console.log("this is test...");
     setIsToggled(!isToggled);
   };
 
@@ -59,7 +48,9 @@ export const RestaurantsScreen = ({ navigation }) => {
         }
       >
         <Spacer position="bottom" size="large">
-          <RestaurantsInfoCard restaurant={item} />
+          <FadeInView>
+            <RestaurantsInfoCard restaurant={item} />
+          </FadeInView>
         </Spacer>
       </TouchableOpacity>
     );
@@ -84,6 +75,7 @@ export const RestaurantsScreen = ({ navigation }) => {
             onNavigate={navigation.navigate}
           />
         )}
+
         <RestaurantList
           data={restaurants}
           renderItem={renderItem}

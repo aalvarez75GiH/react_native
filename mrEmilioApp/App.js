@@ -7,16 +7,8 @@ import { theme } from "./src/infraestructure/theme";
 import { AuthenticationContextProvider } from "./src/infraestructure/services/authentication/authentication.context";
 import { Navigation } from "./src/infraestructure/navigation";
 
-// import { ProductsContextProvider } from "./src/infraestructure/services/products/products.context";
-// import { LocationContextProvider } from "./src/infraestructure/services/location/location.context";
-// import { StoresContextProvider } from "./src/infraestructure/services/stores/stores.context";
-// import { FavouritesContextProvider } from "./src/infraestructure/services/favourites/favourites.context";
-
 // ***************** Firebase configuration
 import * as firebase from "firebase";
-
-// import { initializeApp } from "firebase/app";
-// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDN5vXGx2lpYCOlm7iihV79dsVzFrurjc",

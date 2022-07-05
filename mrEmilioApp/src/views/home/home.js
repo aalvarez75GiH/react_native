@@ -1,11 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
-import { View } from "react-native";
-import { Searchbar } from "react-native-paper";
 
 import { SafeArea } from "../../global_components/safe-area.component";
-import { Text } from "../../../src/infraestructure/typography/text.component";
-import { SearchContainer } from "./home.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import { ProductCardView } from "./product.card";
 import { FlatList, TouchableOpacity } from "react-native";

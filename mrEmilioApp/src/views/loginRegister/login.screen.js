@@ -36,6 +36,8 @@ export const LoginScreen = ({ navigation }) => {
           keyboardType="email-address"
           autoCapitalize="none"
           onChangeText={(value) => setEmail(value)}
+          theme={{ colors: { primary: theme.colors.brand.primary } }}
+          underlineColor={theme.colors.brand.primary}
         />
         <Spacer size="medium" />
         <AuthInput
@@ -46,6 +48,8 @@ export const LoginScreen = ({ navigation }) => {
           autoCapitalize="none"
           secure
           onChangeText={(value) => setPassword(value)}
+          theme={{ colors: { primary: theme.colors.brand.primary } }}
+          underlineColor={theme.colors.brand.primary}
         />
         <Spacer size="medium" />
         {error && (

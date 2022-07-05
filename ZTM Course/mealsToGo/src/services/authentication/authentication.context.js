@@ -11,12 +11,10 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   firebase.auth().onAuthStateChanged((usr) => {
-    if (user) {
+    if (usr) {
       setUser(usr);
-      // setIsLoading(false);
     } else {
-      console.log(usr);
-      // setIsLoading(false);
+      console.log("test:", usr);
     }
   });
 
@@ -30,7 +28,7 @@ export const AuthenticationContextProvider = ({ children }) => {
     setIsLoading(true);
     loginRequest(email, password)
       .then((user) => {
-        console.log("user from firebase:", user);
+        console.log("user from firebase #1:", user);
         setUser(user);
         setIsLoading(false);
       })
@@ -39,6 +37,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         setError(e.toString());
       });
   };
+  console.log("User from firebase #2:", user);
 
   const onRegister = (email, password, repeatedPassword) => {
     setIsLoading(true);
@@ -50,7 +49,6 @@ export const AuthenticationContextProvider = ({ children }) => {
       .then((user) => {
         setUser(user);
         setIsLoading(false);
-        console.log(user);
       })
       .catch((e) => {
         console.log(e);

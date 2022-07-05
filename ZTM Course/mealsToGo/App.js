@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { ThemeProvider } from "styled-components/native";
+import "./ignoreWarnings";
 
 import { theme } from "./src/infraestructure/theme";
 

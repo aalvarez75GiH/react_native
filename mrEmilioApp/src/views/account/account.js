@@ -9,13 +9,13 @@ import { Text } from "../../infraestructure/typography/text.component";
 //   ************ Styled Components ***************************
 
 export const AccountView = () => {
-  const { onLogOut, response } = useContext(AuthenticationContext);
+  const { onLogOut, user } = useContext(AuthenticationContext);
   // console.log("this is Response at Account View:", response);
   // console.log("this is user email at Account View:", response.user.email);
   return (
     <SafeArea>
       <AccountContainer>
-        <Text>{response.email}</Text>
+        <Text>{user.email}</Text>
         <Button title="Sign out" onPress={() => onLogOut()} />
       </AccountContainer>
     </SafeArea>

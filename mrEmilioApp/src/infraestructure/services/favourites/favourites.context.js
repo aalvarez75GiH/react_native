@@ -6,20 +6,21 @@ export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
-  const { response } = useContext(AuthenticationContext);
+  const { user } = useContext(AuthenticationContext);
+  console.log("User from FavouritesContext:", user);
 
   useEffect(() => {
-    if (response && response.uid) {
-      loadFavourites(response.uid);
+    if (user && user.uid) {
+      loadFavourites(user.uid);
     }
-  }, [response]);
+  }, [user]);
 
   useEffect(() => {
-    if (response && response.uid && favourites.length) {
+    if (user && user.uid && favourites.length) {
       console.log("go by save useEffect...");
-      saveFavourites(favourites, response.uid);
+      saveFavourites(favourites, user.uid);
     }
-  }, [favourites, response]);
+  }, [favourites, user]);
 
   const saveFavourites = async (value, uid) => {
     // console.log("go by here...");

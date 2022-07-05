@@ -37,6 +37,8 @@ export const RegisterScreen = ({ navigation }) => {
           keyboardType="email-address"
           autoCapitalize="none"
           onChangeText={(value) => setEmail(value)}
+          theme={{ colors: { primary: theme.colors.brand.primary } }}
+          underlineColor={theme.colors.brand.primary}
         />
         <Spacer size="medium" />
         <AuthInput
@@ -46,6 +48,8 @@ export const RegisterScreen = ({ navigation }) => {
           secureTextEntry
           autoCapitalize="none"
           onChangeText={(value) => setPassword(value)}
+          theme={{ colors: { primary: theme.colors.brand.primary } }}
+          underlineColor={theme.colors.brand.primary}
         />
         <Spacer size="medium" />
         {error && (
@@ -61,6 +65,8 @@ export const RegisterScreen = ({ navigation }) => {
           secureTextEntry
           autoCapitalize="none"
           onChangeText={(value) => setRepeatedPassword(value)}
+          theme={{ colors: { primary: theme.colors.brand.primary } }}
+          underlineColor={theme.colors.brand.primary}
         />
         <Spacer size="medium" />
         {!isLoading ? (

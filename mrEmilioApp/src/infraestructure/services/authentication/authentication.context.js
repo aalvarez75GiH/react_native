@@ -8,15 +8,23 @@ export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [response, setResponse] = useState(null);
+  const [user, setUser] = useState(null);
+
+  firebase.auth().onAuthStateChanged((usr) => {
+    if (user) {
+      setUser(usr);
+    } else {
+      console.log(usr);
+    }
+  });
 
   const onLogin = (email, password) => {
     console.log("email and password:", email, password);
     setIsLoading(true);
     loginRequest(email, password)
-      .then((data) => {
+      .then((u) => {
         setIsLoading(false);
-        setResponse(data.user);
+        setUser(u);
       })
       .catch((e) => {
         setIsLoading(false);
@@ -24,7 +32,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
-  //   console.log("Response from firebase:", response);
+  console.log("user from firebase:", user);
   const onRegister = (email, password, repeatedPassword) => {
     setIsLoading(true);
     if (password !== repeatedPassword) {
@@ -32,8 +40,8 @@ export const AuthenticationContextProvider = ({ children }) => {
       return;
     }
     registerRequest(email, password)
-      .then((data) => {
-        setResponse(data.user);
+      .then((u) => {
+        setUser(u);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -43,12 +51,12 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onLogOut = () => {
-    setResponse(null);
+    setUser(null);
     firebase
       .auth()
       .signOut()
       .then(() => {
-        setResponse(null);
+        setUser(null);
         setError(null);
       });
   };
@@ -56,8 +64,8 @@ export const AuthenticationContextProvider = ({ children }) => {
   return (
     <AuthenticationContext.Provider
       value={{
-        isAuthenticated: !!response,
-        response,
+        isAuthenticated: !!user,
+        user,
         isLoading,
         error,
         onLogin,

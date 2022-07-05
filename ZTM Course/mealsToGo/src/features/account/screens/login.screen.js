@@ -15,6 +15,7 @@ import {
   ErrorContainer,
 } from "../components/account.styles";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { useEffect } from "react/cjs/react.production.min";
 
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -23,6 +24,10 @@ export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, isLoading } = useContext(AuthenticationContext);
 
   console.log(email, password);
+
+  // useEffect(() => {
+  //   onLogin("mariangel@yahoo.com", "123456");
+  // }, []);
 
   return (
     <AccountBackground>

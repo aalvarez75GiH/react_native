@@ -4,10 +4,8 @@ import { ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { RestaurantsInfoCard } from "../components/restaurants-Info-card";
-import { Spacer } from "../../../components/spacer/optimized.spacer.component";
-export const RestaurantDetailScreen = ({ route }) => {
-  // console.log("route.params:", route.params);
 
+export const RestaurantDetailScreen = ({ route }) => {
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);
   const [lunchExpanded, setLunchExpanded] = useState(false);
   const [dinnerExpanded, setDinnerExpanded] = useState(false);

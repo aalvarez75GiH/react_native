@@ -7,7 +7,9 @@ export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useContext(AuthenticationContext);
+
   const saveFavourites = async (value, uid) => {
     try {
       const jsonValue = JSON.stringify(value);
@@ -19,15 +21,16 @@ export const FavouritesContextProvider = ({ children }) => {
   };
 
   const loadFavourites = async (uid) => {
+    setIsLoading(true);
     try {
       const jsonValue = await AsyncStorage.getItem(`@favourites-${uid}`);
       if (jsonValue !== null) {
+        setIsLoading(false);
         setFavourites(JSON.parse(jsonValue));
       }
-      //   return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {
+      setIsLoading(false);
       console.log("error loading:", e);
-      // error reading value
     }
   };
 
@@ -60,6 +63,7 @@ export const FavouritesContextProvider = ({ children }) => {
         favourites,
         addToFavourites,
         removeFromFavourites,
+        isLoading,
       }}
     >
       {children}
