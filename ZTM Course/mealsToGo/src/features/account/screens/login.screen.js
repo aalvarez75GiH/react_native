@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ActivityIndicator } from "react-native-paper";
 
 import image from "../../../../assets/home_bg.jpg";
@@ -15,7 +15,6 @@ import {
   ErrorContainer,
 } from "../components/account.styles";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
-import { useEffect } from "react/cjs/react.production.min";
 
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");

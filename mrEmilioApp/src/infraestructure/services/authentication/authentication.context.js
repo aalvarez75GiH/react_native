@@ -11,7 +11,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   firebase.auth().onAuthStateChanged((usr) => {
-    if (user) {
+    if (usr) {
       setUser(usr);
     } else {
       console.log(usr);

@@ -9,3 +9,13 @@ export const productsRequest = () => {
     }
   });
 };
+
+export const productsRequestById = (id) => {
+  return new Promise((resolve, reject) => {
+    if (products.length > 0) {
+      resolve(products);
+    } else {
+      reject("There are no Products at DB");
+    }
+  });
+};

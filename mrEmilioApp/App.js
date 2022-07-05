@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ThemeProvider } from "styled-components/native";
+import "./src/ignoreWarnings";
 
 import { theme } from "./src/infraestructure/theme";
 

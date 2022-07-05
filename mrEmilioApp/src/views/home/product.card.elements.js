@@ -75,12 +75,3 @@ export const ViewProductButton = styled.View`
   align-items: center;
   margin-left: 60%;
 `;
-
-export const ShowProductsButton = styled.View`
-  width: 50%;
-  height: 50px;
-  background-color: ${(props) => props.theme.colors.brand.tertiary};
-  justify-content: center;
-  align-items: center;
-  margin-left: 60%;
-`;

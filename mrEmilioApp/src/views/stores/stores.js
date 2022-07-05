@@ -37,12 +37,12 @@ export const StoresView = ({ navigation }) => {
         onPress={() =>
           navigation.navigate("StoreDetail", {
             store: item,
-            navigation: navigation,
+            // navigation: navigation,
           })
         }
       >
         <Spacer position="bottom" size="large">
-          <StoreCardView store={item} />
+          <StoreCardView store={item} key={item.id} />
         </Spacer>
       </TouchableOpacity>
     );
@@ -64,7 +64,10 @@ export const StoresView = ({ navigation }) => {
         <StoresList
           data={stores}
           renderItem={renderItem}
-          keyExtractor={(item) => item.place_id}
+          keyExtractor={(item, id) => {
+            return item.id;
+          }}
+          // keyExtractor={(item) =>  item.place_id}
         />
       </SafeArea>
     </>

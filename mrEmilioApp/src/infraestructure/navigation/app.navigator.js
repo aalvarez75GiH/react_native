@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-// import { NavigationContainer } from "@react-navigation/native";
 
 import { AccountView } from "../../../src/views/account/account";
 import { StoresNavigator } from "./stores.navigator";
 import { HomeNavigator } from "./home.navigator";
+import { AccountNavigator } from "./account.navigator";
+
 import { CartView } from "../../../src/views/cart/cart";
 import { theme } from "../theme";
 
@@ -46,7 +47,7 @@ export const AppNavigator = () => {
               <Tab.Screen name="home" component={HomeNavigator} />
               <Tab.Screen name="stores" component={StoresNavigator} />
               <Tab.Screen name="cart" component={CartView} />
-              <Tab.Screen name="account" component={AccountView} />
+              <Tab.Screen name="account" component={AccountNavigator} />
             </Tab.Navigator>
           </ProductsContextProvider>
         </StoresContextProvider>

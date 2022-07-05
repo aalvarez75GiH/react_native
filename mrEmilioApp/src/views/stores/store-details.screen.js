@@ -17,8 +17,8 @@ import {
 } from "../../infraestructure/services/stores/stores.services";
 import { ProductMiniCard } from "./productMiniCard";
 
-export const StoreDetailScreen = ({ route }) => {
-  const { store, navigation } = route.params;
+export const StoreDetailScreen = ({ route, navigation }) => {
+  const { store } = route.params;
   const [isLoading, setIsLoading] = useState(false);
   const [menu, setMenu] = useState([]);
   const [error, setError] = useState(null);
@@ -42,8 +42,8 @@ export const StoreDetailScreen = ({ route }) => {
     retrieveMenu(store.id);
   }, []);
 
-  const renderingProductToSale = menu.map((product) => {
-    return <ProductMiniCard product={product} key={product.id} />;
+  const renderingProductToSale = menu.map((product, index) => {
+    return <ProductMiniCard product={product} key={index.toString()} />;
   });
 
   return (

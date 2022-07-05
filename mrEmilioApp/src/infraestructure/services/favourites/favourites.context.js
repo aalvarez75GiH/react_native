@@ -48,7 +48,7 @@ export const FavouritesContextProvider = ({ children }) => {
 
   const addToFavourites = (product) => {
     setFavourites([...favourites, product]);
-    saveFavourites(favourites, response.uid);
+    saveFavourites(favourites, user.uid);
   };
 
   const removeFromFavourites = (product) => {

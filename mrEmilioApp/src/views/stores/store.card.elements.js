@@ -79,6 +79,7 @@ export const ProductMiniCardContainer = styled.View`
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
+  /* background-color: #010606; */
 `;
 
 // ************* ProductMiniCard
@@ -95,7 +96,6 @@ export const MiniCardContainer = styled.View`
   /* background-color: blue; */
   border-radius: 15px;
   margin: 1%;
-  /* justify-content: center; */
   align-items: center;
   margin-left: 2%;
   margin-top: 3%;

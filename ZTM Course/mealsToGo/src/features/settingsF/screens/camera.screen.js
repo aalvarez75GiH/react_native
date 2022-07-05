@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import styled from "styled-components/native";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Camera, CameraType } from "expo-camera";
-import styled from "styled-components/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Text } from "../../../components/typography/text.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 // ****************** Styled Components
-export const ProfileCamera = styled(Camera)`
+const ProfileCamera = styled(Camera)`
   width: 100%;
   height: 100%;
 `;

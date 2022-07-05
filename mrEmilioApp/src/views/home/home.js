@@ -9,14 +9,7 @@ import { ProductsContext } from "../../infraestructure/services/products/product
 import { Search } from "./searchProducts.component";
 import { FavouritesContext } from "../../infraestructure/services/favourites/favourites.context";
 import { FavouritesBar } from "../../global_components/favourites/favourites-bar.component";
-
-//   ************ Styled Components ***************************
-
-const ProductList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
+import { ProductList } from "./home.elements";
 
 export const HomeView = ({ navigation }) => {
   const { products } = useContext(ProductsContext);

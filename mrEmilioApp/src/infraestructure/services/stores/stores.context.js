@@ -22,7 +22,6 @@ export const StoresContextProvider = ({ children }) => {
       storesRequestBySearchTerm(keyword)
         .then(storesInfoTransformed)
         .then((storesResult) => {
-          //   console.log("result:", storesResult);
           setIsLoading(false);
           setStores(storesResult);
         })
