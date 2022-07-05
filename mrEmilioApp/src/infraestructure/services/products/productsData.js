@@ -1,9 +1,3 @@
-// import arequipe_picture from "../../../../assets/pictures/Arequipe.jpg";
-// import crema_picture from "../../../../assets/pictures/crema.jpg";
-// import suero_picture from "../../../../assets/pictures/suero.jpg";
-// import tequeños_picture from "../../../../assets/pictures/tequenos.jpg";
-// import salsas_picture from "../../../../assets/pictures/salsas.jpg";
-
 import arequipe_picture from "../../../../assets/pictures/white_background_pics/whiteBG_arequipe.png";
 import crema_picture from "../../../../assets/pictures/white_background_pics/whiteBG_crema.png";
 import suero_picture from "../../../../assets/pictures/white_background_pics/whiteBG_suero.png";

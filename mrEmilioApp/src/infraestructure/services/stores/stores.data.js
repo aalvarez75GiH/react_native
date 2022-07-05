@@ -1,5 +1,5 @@
-import compadres from "../../../../assets/pictures/los_compadres.png";
-import losPrimos from "../../../../assets/pictures/losprimos_2.png";
+import compadres from "../../../../assets/pictures/athens_supermarkets/los_compadres.png";
+import losPrimos from "../../../../assets/pictures/athens_supermarkets/losprimos_2.png";
 import CostaDeJalisco from "../../../../assets/pictures/athens_supermarkets/costa_de_jalisco.png";
 import LosPlebes from "../../../../assets/pictures/athens_supermarkets/los_plebes.png";
 import LaPLaza from "../../../../assets/pictures/athens_supermarkets/la_plaza_mexicana.png";
