@@ -17,6 +17,7 @@ import {
   MapButtonText,
 } from "./store.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
+import { CloseButton } from "../../global_components/closeIconButton";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 import image from "../../../assets/los_compadres.png";
 
@@ -41,6 +42,7 @@ export const StoreCardDetailsView = ({ store, navigation }) => {
 
   return (
     <StoreCardContainer elevation={5}>
+      <CloseButton navigation={navigation} />
       <StoreCardCover key={store.name} source={store.picture} />
       <Info>
         <Text variant="label">{store.name}</Text>

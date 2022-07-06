@@ -6,7 +6,7 @@ import { Text } from "../../infraestructure/typography/text.component";
 
 const CompactImage = styled.Image`
   border-radius: 10px;
-  width: 120px;
+  width: 90px;
   height: 100px;
 `;
 

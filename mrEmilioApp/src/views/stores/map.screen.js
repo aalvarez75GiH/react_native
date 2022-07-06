@@ -5,6 +5,8 @@ import MapView from "react-native-maps";
 import { Map } from "./map.elements";
 import { LocationContext } from "../../infraestructure/services/location/location.context";
 import { MapCallOut } from "./map.callout.component";
+import { CloseButton } from "../../global_components/closeIconButton";
+import { Spacer } from "../../global_components/optimized.spacer.component";
 
 export const MapScreen = ({ route, navigation }) => {
   const { store } = route.params;
@@ -20,6 +22,16 @@ export const MapScreen = ({ route, navigation }) => {
   return (
     <>
       <View>
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <Spacer top large />
+        <CloseButton navigation={navigation} />
         <Map
           region={{
             latitude: lat,

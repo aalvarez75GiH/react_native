@@ -1,10 +1,13 @@
 import React from "react";
 import { Rating } from "react-native-ratings";
+import { IconButton } from "react-native-paper";
 
 import myImage from "../../../assets/pictures/suero.jpg";
 import { theme } from "../../infraestructure/theme";
 import {
   ProductCardContainer,
+  ProductCardCloseContainer,
+  CloseIconButton,
   ProductCardCover,
   Info,
   Description,
@@ -15,8 +18,9 @@ import {
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
+import { CloseButton } from "../../global_components/closeIconButton";
 
-export const ProductCard2View = ({ product }) => {
+export const ProductCard2View = ({ product, navigation }) => {
   const {
     name = "Some Product",
     description = "Some description",
@@ -30,6 +34,7 @@ export const ProductCard2View = ({ product }) => {
 
   return (
     <ProductCardContainer elevation={5}>
+      <CloseButton navigation={navigation} />
       <ProductCardCover key={product.name} source={product.picture} />
       <Info>
         <Text variant="label">{product.name}</Text>

@@ -1,7 +1,7 @@
 import React from "react";
 import {
   createStackNavigator,
-  TransitionPresets,
+  CardStyleInterpolators,
 } from "@react-navigation/stack";
 
 import { HomeView } from "../../views/home/home";
@@ -14,7 +14,7 @@ export const HomeNavigator = () => {
     <HomeStack.Navigator
       headerMode="none"
       screenOptions={{
-        ...TransitionPresets.ModalPresentationIOS,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
       <HomeStack.Screen name="Home" component={HomeView} />

@@ -1,22 +1,13 @@
 import React, { useContext } from "react";
-import styled from "styled-components/native";
-import { AntDesign } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { FavouritesContext } from "../../../src/infraestructure/services/favourites/favourites.context";
-
-const FavouriteButton = styled(TouchableOpacity)`
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 9;
-`;
+import { theme } from "../../infraestructure/theme";
+import { FavouriteButton } from "./favourites.elements";
 
 export const FavouriteComponent = ({ product }) => {
   const { favourites, addToFavourites, removeFromFavourites } =
     useContext(FavouritesContext);
-
-  //   console.log(favourites);
 
   const isFavourite = favourites.find((r) => r.id === product.id);
   return (
@@ -25,10 +16,10 @@ export const FavouriteComponent = ({ product }) => {
         !isFavourite ? addToFavourites(product) : removeFromFavourites(product)
       }
     >
-      <AntDesign
-        name={isFavourite ? "heart" : "hearto"}
-        size={24}
-        color={isFavourite ? "red" : "gray"}
+      <MaterialCommunityIcons
+        name={isFavourite ? "bookmark" : "bookmark-outline"}
+        size={34}
+        color={isFavourite ? theme.colors.brand.primary : "gray"}
       />
     </FavouriteButton>
   );

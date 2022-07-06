@@ -1,6 +1,7 @@
 import React from "react";
 import {
   createStackNavigator,
+  CardStyleInterpolators,
   TransitionPresets,
 } from "@react-navigation/stack";
 
@@ -15,12 +16,18 @@ export const StoresNavigator = () => {
     <StoreStack.Navigator
       headerMode="none"
       screenOptions={{
-        ...TransitionPresets.ModalPresentationIOS,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
       <StoreStack.Screen name="Stores" component={StoresView} />
       <StoreStack.Screen name="StoreDetail" component={StoreDetailScreen} />
-      <StoreStack.Screen name="Map" component={MapScreen} />
+      <StoreStack.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+        }}
+      />
     </StoreStack.Navigator>
   );
 };

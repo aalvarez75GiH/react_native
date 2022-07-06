@@ -1,6 +1,7 @@
 import React from "react";
 import {
   createStackNavigator,
+  TransitionPresets,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { MyFavourites } from "../../views/account/myFavourites";

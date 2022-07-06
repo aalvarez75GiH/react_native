@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import styled from "styled-components/native";
 
 import { SafeArea } from "../../global_components/safe-area.component";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import { ProductCardView } from "./product.card";
-import { FlatList, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { ProductsContext } from "../../infraestructure/services/products/products.context";
 import { Search } from "./searchProducts.component";
 import { FavouritesContext } from "../../infraestructure/services/favourites/favourites.context";

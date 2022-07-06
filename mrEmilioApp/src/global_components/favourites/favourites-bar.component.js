@@ -4,11 +4,7 @@ import { ScrollView, TouchableOpacity } from "react-native";
 
 import { CompactProductInfo } from "../../views/home/compactProduct-info.component";
 import { Spacer } from "../../global_components/optimized.spacer.component";
-import { Text } from "../../infraestructure/typography/text.component";
-
-const FavouritesWrapper = styled.View`
-  padding: 10px;
-`;
+import { FavouritesWrapper, FavouriteBarTitle } from "./favourites.elements";
 
 export const FavouritesBar = ({ favourites, onNavigate }) => {
   if (!favourites.length) {
@@ -18,7 +14,7 @@ export const FavouritesBar = ({ favourites, onNavigate }) => {
     <>
       <FavouritesWrapper>
         <Spacer variant="left.large">
-          <Text variant="caption">Mis Favoritos</Text>
+          <FavouriteBarTitle variant="caption">My favourites</FavouriteBarTitle>
         </Spacer>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {favourites.map((product) => {

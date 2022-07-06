@@ -57,14 +57,11 @@ export const AccountView = ({ navigation }) => {
             onPress={() => navigation.navigate("Camera")}
           />
         </ChangeAvatarIconContainer>
-
-        {/* <TouchableOpacity onPress={() => navigation.navigate("Camera")}> */}
         {!photo ? (
           <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
         ) : (
           <Avatar.Image size={180} source={{ uri: photo }} />
         )}
-        {/* </TouchableOpacity> */}
         <Spacer position="top" size="large" />
         <Text variant="label">{user.email}</Text>
       </AvatarContainer>
