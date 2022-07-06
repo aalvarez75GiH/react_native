@@ -3,7 +3,10 @@ import { List } from "react-native-paper";
 import { Camera } from "expo-camera";
 import { TouchableOpacity } from "react-native";
 
+// ***************** Account elements
+
 export const AvatarContainer = styled.View`
+  /* background-color: #010606; */
   align-items: center;
 `;
 

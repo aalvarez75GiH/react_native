@@ -5,6 +5,7 @@ if (__DEV__) {
     "EventEmitter.removeListener",
     "ViewPropTypes will be removed from React Native",
     "AsyncStorage has been extracted from react-native",
+    "You passed a second argument to 'useFocusEffect', but it only accepts one argument. If you want to pass a dependency array, you can use 'React.useCallback':",
   ];
 
   const warn = console.warn;

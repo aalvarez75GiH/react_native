@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { AccountView } from "../../../src/views/account/account";
 import { StoresNavigator } from "./stores.navigator";
 import { HomeNavigator } from "./home.navigator";
 import { AccountNavigator } from "./account.navigator";
