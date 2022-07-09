@@ -6,7 +6,7 @@ import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapNavigator } from "./map.navigator";
 import { SettingsScreen } from "../../features/settingsF/screens/settings.screen";
 
-import { RestaurantContextProvider } from "../../services/restaurants/mock/restaurants.context";
+import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { SettingsNavigator } from "./settings.navigator";

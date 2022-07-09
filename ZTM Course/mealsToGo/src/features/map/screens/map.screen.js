@@ -6,7 +6,7 @@ import MapView from "react-native-maps";
 import { Map } from "./map.elements";
 import { Search } from "../components/search.component";
 import { LocationContext } from "../../../services/location/location.context";
-import { RestaurantContext } from "../../../services/restaurants/mock/restaurants.context";
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { MapCallOut } from "../components/map.callout.component";
 
 export const MapScreen = ({ navigation }) => {

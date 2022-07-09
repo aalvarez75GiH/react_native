@@ -23,14 +23,14 @@ export const LocationContextProvider = ({ children }) => {
     locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((res) => {
+        console.log(res);
         setIsLoading(false);
         setLocation(res);
-        // console.log(res);
       })
       .catch((err) => {
         setIsLoading(false);
         setError(err);
-        console.log("this is the error:", err);
+        console.log("this is the myIos error:", err);
       });
   }, [keyword]);
 

@@ -7,7 +7,7 @@ import { RestaurantsInfoCard } from "../components/restaurants-Info-card";
 import { Spacer } from "../../../components/spacer/optimized.spacer.component";
 import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { theme } from "../../../infraestructure/theme";
-import { RestaurantContext } from "../../../services/restaurants/mock/restaurants.context";
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
