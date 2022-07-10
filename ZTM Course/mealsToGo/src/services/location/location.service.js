@@ -1,14 +1,12 @@
 import camelize from "camelize";
-import axios from "axios";
-import { Platform } from "react-native";
 
+import { host } from "../../utils/env";
+console.log(host);
 export const locationRequest = async (searchTerm) => {
-  const geocodeFunctionUrl =
-    Platform.OS === "android"
-      ? `http://10.0.2.2:5001/mealstogo-64385/us-central1/geocode?city=${searchTerm}`
-      : `http://0.0.0.0:5001/mealstogo-64385/us-central1/geocode?city=${searchTerm}`;
-
-  return fetch(geocodeFunctionUrl).then((res) => {
+  return fetch(`${host}/geocode?city=${searchTerm}`).then((res) => {
+    // return fetch(
+    //   `https://us-central1-mealstogo-64385.cloudfunctions.net/geocode?city=${searchTerm}`
+    // ).then((res) => {
     if (!res) {
       return "There is no city with that name...";
     }

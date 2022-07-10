@@ -1,21 +1,9 @@
 import camelize from "camelize";
 
-// export const restaurantsRequest = (location) => {
-//   console.log("location at restaurantRequest:", location);
-//   return fetch(
-//     `http://10.0.2.2:5001/mealstogo-64385/us-central1/placesNearBy?location=${location}`
-//   ).then((res) => {
-//     return res.json();
-//   });
-// };
-
+import { host } from "../../utils/env";
+console.log(host);
 export const restaurantsRequest = (location) => {
-  const placesFunctionUrl =
-    Platform.OS === "android"
-      ? `http://10.0.2.2:5001/mealstogo-64385/us-central1/placesNearBy?location=${location}`
-      : `http://localhost:5001/mealstogo-64385/us-central1/placesNearBy?location=${location}`;
-
-  return fetch(placesFunctionUrl).then((res) => {
+  return fetch(`${host}/placesNearBy?location=${location}`).then((res) => {
     if (!res) {
       return "There are no restaurants in this location";
     }

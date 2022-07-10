@@ -23,8 +23,6 @@ export const FavouritesContextProvider = ({ children }) => {
   }, [favourites, user]);
 
   const saveFavourites = async (value, uid) => {
-    // console.log("go by here...");
-    // console.log(response);
     console.log("uid:", uid);
     try {
       const jsonValue = JSON.stringify(value);
