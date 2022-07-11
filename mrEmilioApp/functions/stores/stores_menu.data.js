@@ -1,10 +1,15 @@
-import arequipe_picture from "../../../../assets/pictures/white_background_pics/whiteBG_arequipe.png";
-import crema_picture from "../../../../assets/pictures/white_background_pics/whiteBG_crema.png";
-import suero_picture from "../../../../assets/pictures/white_background_pics/whiteBG_suero.png";
-import tequeños_picture from "../../../../assets/pictures/white_background_pics/diagonalFace_tequenos.png";
-import salsas_picture from "../../../../assets/pictures/white_background_pics/whiteBG_salsas.png";
+const arequipe_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_arequipe.png";
+const crema_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_crema.png";
+const suero_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_suero.png";
+const tequeños_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/diagonalFace_tequenos.png";
+const salsas_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_salsas.png";
 
-export const menus = {
+module.exports.menus = {
   s0001: {
     results: [
       {
@@ -405,95 +410,95 @@ export const menus = {
   },
 };
 
-export const storesMenu = [
-  {
-    id: "M0001",
-    store_id: "s0001",
-    menu: [
-      {
-        name: "Arequipe",
-        description:
-          "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
-        price: 12,
-        stock: 5,
-        size: "32oz",
-        quantity: "1",
-        picture: arequipe_picture,
-        rating: 4,
-        product_id: "p0001",
-      },
-    ],
-  },
-  {
-    id: "M0002",
-    store_id: "s0002",
-    menu: [
-      {
-        name: "Arequipe",
-        description:
-          "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
-        price: 12,
-        stock: 5,
-        size: "32oz",
-        quantity: "1",
-        picture: arequipe_picture,
-        rating: 4,
-        product_id: "p0001",
-      },
-      {
-        name: "Crema de leche",
-        description:
-          "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
-        price: 12,
-        stock: 5,
-        size: "8oz",
-        quantity: "1",
-        picture: crema_picture,
-        rating: 4,
-        product_id: "p0002",
-      },
-    ],
-  },
-  {
-    id: "M0003",
-    store_id: "s0003",
-    menu: [
-      {
-        name: "Arequipe",
-        description:
-          "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
-        price: 12,
-        stock: 5,
-        size: "32oz",
-        quantity: "1",
-        picture: arequipe_picture,
-        rating: 4,
-        product_id: "p0001",
-      },
-      {
-        name: "Crema de leche",
-        description:
-          "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
-        price: 12,
-        stock: 5,
-        size: "8oz",
-        quantity: "1",
-        picture: crema_picture,
-        rating: 4,
-        product_id: "p0002",
-      },
-      {
-        name: "Suero de leche",
-        description:
-          "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
-        price: 12,
-        stock: 5,
-        size: "32oz",
-        quantity: "1",
-        picture: suero_picture,
-        rating: 5,
-        product_id: "p0003",
-      },
-    ],
-  },
-];
+// export const storesMenu = [
+//   {
+//     id: "M0001",
+//     store_id: "s0001",
+//     menu: [
+//       {
+//         name: "Arequipe",
+//         description:
+//           "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
+//         price: 12,
+//         stock: 5,
+//         size: "32oz",
+//         quantity: "1",
+//         picture: arequipe_picture,
+//         rating: 4,
+//         product_id: "p0001",
+//       },
+//     ],
+//   },
+//   {
+//     id: "M0002",
+//     store_id: "s0002",
+//     menu: [
+//       {
+//         name: "Arequipe",
+//         description:
+//           "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
+//         price: 12,
+//         stock: 5,
+//         size: "32oz",
+//         quantity: "1",
+//         picture: arequipe_picture,
+//         rating: 4,
+//         product_id: "p0001",
+//       },
+//       {
+//         name: "Crema de leche",
+//         description:
+//           "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
+//         price: 12,
+//         stock: 5,
+//         size: "8oz",
+//         quantity: "1",
+//         picture: crema_picture,
+//         rating: 4,
+//         product_id: "p0002",
+//       },
+//     ],
+//   },
+//   {
+//     id: "M0003",
+//     store_id: "s0003",
+//     menu: [
+//       {
+//         name: "Arequipe",
+//         description:
+//           "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
+//         price: 12,
+//         stock: 5,
+//         size: "32oz",
+//         quantity: "1",
+//         picture: arequipe_picture,
+//         rating: 4,
+//         product_id: "p0001",
+//       },
+//       {
+//         name: "Crema de leche",
+//         description:
+//           "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
+//         price: 12,
+//         stock: 5,
+//         size: "8oz",
+//         quantity: "1",
+//         picture: crema_picture,
+//         rating: 4,
+//         product_id: "p0002",
+//       },
+//       {
+//         name: "Suero de leche",
+//         description:
+//           "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
+//         price: 12,
+//         stock: 5,
+//         size: "32oz",
+//         quantity: "1",
+//         picture: suero_picture,
+//         rating: 5,
+//         product_id: "p0003",
+//       },
+//     ],
+//   },
+// ];

@@ -1,4 +1,4 @@
-export const locations = {
+module.exports.locations = {
   athens: {
     results: [
       {

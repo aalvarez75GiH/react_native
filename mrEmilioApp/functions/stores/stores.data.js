@@ -1,10 +1,5 @@
-import compadres from "../../../../assets/pictures/athens_supermarkets/los_compadres.png";
-import losPrimos from "../../../../assets/pictures/athens_supermarkets/losprimos_2.png";
-import CostaDeJalisco from "../../../../assets/pictures/athens_supermarkets/costa_de_jalisco.png";
-import LosPlebes from "../../../../assets/pictures/athens_supermarkets/los_plebes.png";
-import LaPLaza from "../../../../assets/pictures/athens_supermarkets/la_plaza_mexicana.png";
-export const stores = {
-  Athens: {
+module.exports.stores = {
+  athens: {
     results: [
       {
         name: "Supermarket Los Compádres",
@@ -17,7 +12,8 @@ export const stores = {
             lng: -83.40103261362604,
           },
         },
-        picture: compadres,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/los_compadres.png",
         id: "s0001",
         place_id: "s0001",
       },
@@ -32,7 +28,8 @@ export const stores = {
             lng: -83.41279571705157,
           },
         },
-        picture: losPrimos,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/losprimos_2.png",
         id: "s0002",
         place_id: "0002",
       },
@@ -47,7 +44,8 @@ export const stores = {
             lng: -83.38393134592857,
           },
         },
-        picture: CostaDeJalisco,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/costa_de_jalisco.png",
         id: "s0003",
         place_id: "s0003",
       },
@@ -62,7 +60,8 @@ export const stores = {
             lng: -83.36215765198662,
           },
         },
-        picture: LosPlebes,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/los_plebes.png",
         id: "s0004",
         place_id: "s0004",
       },
@@ -77,13 +76,14 @@ export const stores = {
             lng: -83.38108649368053,
           },
         },
-        picture: LaPLaza,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/la_plaza_mexicana.png",
         id: "s0005",
         place_id: "s0005",
       },
     ],
   },
-  Atlanta: {
+  atlanta: {
     results: [
       {
         name: "Supermarket Los Compádres - Atlanta",
@@ -96,7 +96,8 @@ export const stores = {
             lng: -83.40101,
           },
         },
-        picture: compadres,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/los_compadres.png",
         id: "s0006",
         place_id: "s0006",
       },
@@ -111,7 +112,8 @@ export const stores = {
             lng: -83.40101,
           },
         },
-        picture: losPrimos,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/losprimos_2.png",
         id: "s0007",
         place_id: "s0007",
       },
@@ -126,7 +128,8 @@ export const stores = {
             lng: -83.40101,
           },
         },
-        picture: CostaDeJalisco,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/costa_de_jalisco.png",
         id: "s0008",
         place_id: "s0008",
       },
@@ -141,7 +144,8 @@ export const stores = {
             lng: -83.40101,
           },
         },
-        picture: LosPlebes,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/los_plebes.png",
         id: "s0009",
         place_id: "s0009",
       },
@@ -156,7 +160,8 @@ export const stores = {
             lng: -83.40101,
           },
         },
-        picture: LaPLaza,
+        picture:
+          "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/storesIMages/la_plaza_mexicana.png",
         id: "s0010",
         place_id: "s0010",
       },

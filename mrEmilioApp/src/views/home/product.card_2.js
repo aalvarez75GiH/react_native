@@ -35,7 +35,7 @@ export const ProductCard2View = ({ product, navigation }) => {
   return (
     <ProductCardContainer elevation={5}>
       <CloseButton navigation={navigation} />
-      <ProductCardCover key={product.name} source={product.picture} />
+      <ProductCardCover key={product.name} source={{ uri: product.picture }} />
       <Info>
         <Text variant="label">{product.name}</Text>
         <Spacer />

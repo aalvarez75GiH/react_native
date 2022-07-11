@@ -12,12 +12,12 @@ import { Navigation } from "./src/infraestructure/navigation";
 import * as firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBDN5vXGx2lpYCOlm7iihV79dsVzFrurjc",
-  authDomain: "mealstogo-64385.firebaseapp.com",
-  projectId: "mealstogo-64385",
-  storageBucket: "mealstogo-64385.appspot.com",
-  messagingSenderId: "425550156227",
-  appId: "1:425550156227:web:3c6adede902217b47b6d76",
+  apiKey: "AIzaSyBdFCpKiPaoP-fsqYW7PmAY0NGwBnBZfCU",
+  authDomain: "mremilio-b84c7.firebaseapp.com",
+  projectId: "mremilio-b84c7",
+  storageBucket: "mremilio-b84c7.appspot.com",
+  messagingSenderId: "122966172010",
+  appId: "1:122966172010:web:7054772c6679d5935d4513",
 };
 
 if (!firebase.apps.length) {

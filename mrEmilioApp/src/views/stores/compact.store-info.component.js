@@ -29,7 +29,7 @@ export const CompactStoreInfo = ({ store, isMap }) => {
   //   console.log("store at compact: ", store);
   return (
     <Item>
-      <Image source={store.picture} />
+      <Image source={{ uri: store.picture }} />
       <Text center variant="caption" numberOfLines={3}>
         {store.name}
       </Text>

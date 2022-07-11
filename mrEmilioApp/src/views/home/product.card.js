@@ -25,11 +25,10 @@ export const ProductCardView = ({ product }) => {
     size = "32oz",
     quantity = "1",
   } = product;
-
   return (
     <ProductCardContainer elevation={5}>
       <FavouriteComponent product={product} />
-      <ProductCardCover key={product.name} source={product.picture} />
+      <ProductCardCover key={product.name} source={{ uri: product.picture }} />
       <Info>
         <Text variant="label">{product.name}</Text>
         <Section>

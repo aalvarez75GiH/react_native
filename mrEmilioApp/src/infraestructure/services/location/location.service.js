@@ -1,15 +1,19 @@
 import camelize from "camelize";
 
-import { locations } from "./location.mock";
-
 export const locationRequest = (searchTerm) => {
-  return new Promise((resolve, reject) => {
-    const locationMock = locations[searchTerm];
-    if (!locationMock) {
-      reject("not found");
-    }
-    resolve(locationMock);
-  });
+  return fetch(
+    // `http://10.0.2.2:5001/mremilio-b84c7/us-central1/geolocation?city=${searchTerm}`
+    `https://us-central1-mremilio-b84c7.cloudfunctions.net/geolocation?city=${searchTerm}`
+  )
+    .then((res) => {
+      if (!res) {
+        return "No hay tiendas en esta área";
+      }
+      return res.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const locationTransform = (result) => {

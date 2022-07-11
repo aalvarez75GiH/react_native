@@ -1,10 +1,15 @@
-import arequipe_picture from "../../../../assets/pictures/white_background_pics/whiteBG_arequipe.png";
-import crema_picture from "../../../../assets/pictures/white_background_pics/whiteBG_crema.png";
-import suero_picture from "../../../../assets/pictures/white_background_pics/whiteBG_suero.png";
-import tequeños_picture from "../../../../assets/pictures/white_background_pics/diagonalFace_tequenos.png";
-import salsas_picture from "../../../../assets/pictures/white_background_pics/whiteBG_salsas.png";
+const arequipe_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_arequipe.png";
+const crema_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_crema.png";
+const suero_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_suero.png";
+const tequeños_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/diagonalFace_tequenos.png";
+const salsas_picture =
+  "https://sh3ck-s3-bucket.s3.amazonaws.com/images/mrEmilio/whiteBG_salsas.png";
 
-export const products = [
+module.exports.products = [
   {
     name: "Arequipe",
     description:

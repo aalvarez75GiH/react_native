@@ -8,10 +8,6 @@ import { ProductMiniCardContainer } from "../stores/store.card.elements";
 export const MyFavourites = () => {
   const { favourites } = useContext(FavouritesContext);
 
-  const renderItem = ({ item }) => {
-    return <ProductMiniCard product={item} />;
-  };
-
   const renderingfavourites = favourites.map((favourite, index) => {
     return <ProductMiniCard product={favourite} key={index.toString()} />;
   });

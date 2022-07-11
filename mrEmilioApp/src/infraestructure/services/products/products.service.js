@@ -1,21 +1,12 @@
-import { products } from "./productsData";
-
 export const productsRequest = () => {
-  return new Promise((resolve, reject) => {
-    if (products.length > 0) {
-      resolve(products);
-    } else {
-      reject("There are no Products at DB");
-    }
-  });
-};
-
-export const productsRequestById = (id) => {
-  return new Promise((resolve, reject) => {
-    if (products.length > 0) {
-      resolve(products);
-    } else {
-      reject("There are no Products at DB");
-    }
-  });
+  return fetch(`https://us-central1-mremilio-b84c7.cloudfunctions.net/products`)
+    .then((res) => {
+      if (!res) {
+        return "No hay productos";
+      }
+      return res.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

@@ -22,7 +22,7 @@ export const CompactProductInfo = ({ product, isHome }) => {
   const Image = CompactImage;
   return (
     <Item>
-      <Image source={product.picture} />
+      <Image source={{ uri: product.picture }} />
       <Text center variant="caption" numberOfLines={3}>
         {product.name}
       </Text>

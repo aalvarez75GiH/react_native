@@ -11,18 +11,16 @@ export const ProductsContextProvider = ({ children }) => {
 
   const retrieveProducts = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      productsRequest()
-        .then((productsResult) => {
-          setIsLoading(false);
-          setProducts(productsResult);
-          console.log(products);
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          setError(error);
-        });
-    }, 2000);
+    productsRequest()
+      .then((productsResult) => {
+        setIsLoading(false);
+        setProducts(productsResult);
+        console.log(products);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error);
+      });
   };
 
   useEffect(() => {

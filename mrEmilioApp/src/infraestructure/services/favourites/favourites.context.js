@@ -7,7 +7,6 @@ export const FavouritesContext = createContext();
 export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
   const { user } = useContext(AuthenticationContext);
-  console.log("User from FavouritesContext:", user);
 
   useEffect(() => {
     if (user && user.uid) {

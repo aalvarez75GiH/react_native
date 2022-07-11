@@ -43,7 +43,7 @@ export const StoreCardDetailsView = ({ store, navigation }) => {
   return (
     <StoreCardContainer elevation={5}>
       <CloseButton navigation={navigation} />
-      <StoreCardCover key={store.name} source={store.picture} />
+      <StoreCardCover key={store.name} source={{ uri: store.picture }} />
       <Info>
         <Text variant="label">{store.name}</Text>
         <Section>
