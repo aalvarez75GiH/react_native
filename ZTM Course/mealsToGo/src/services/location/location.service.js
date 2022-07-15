@@ -1,18 +1,17 @@
 import camelize from "camelize";
 
-import { host } from "../../utils/env";
+import { host, isMock } from "../../utils/env";
 console.log(host);
 export const locationRequest = async (searchTerm) => {
-  return fetch(`${host}/geocode?city=${searchTerm}`).then((res) => {
-    // return fetch(
-    //   `https://us-central1-mealstogo-64385.cloudfunctions.net/geocode?city=${searchTerm}`
-    // ).then((res) => {
-    if (!res) {
-      return "There is no city with that name...";
+  return fetch(`${host}/geocode?city=${searchTerm}&mock=${isMock}`).then(
+    (res) => {
+      if (!res) {
+        return "There is no city with that name...";
+      }
+      console.log(res);
+      return res.json();
     }
-    console.log(res);
-    return res.json();
-  });
+  );
 };
 
 export const locationTransform = (result) => {

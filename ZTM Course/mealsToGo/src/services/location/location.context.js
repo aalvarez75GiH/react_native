@@ -5,7 +5,7 @@ import { locationRequest, locationTransform } from "./location.service";
 export const LocationContext = createContext();
 
 export const LocationContextProvider = ({ children }) => {
-  const [keyword, setKeyword] = useState("Chicago");
+  const [keyword, setKeyword] = useState("Toronto");
   const [location, setLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,14 +23,14 @@ export const LocationContextProvider = ({ children }) => {
     locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((res) => {
-        console.log(res);
+        setError(null);
         setIsLoading(false);
         setLocation(res);
       })
       .catch((err) => {
         setIsLoading(false);
         setError(err);
-        console.log("this is the myIos error:", err);
+        console.log("Error at location Request:", err);
       });
   }, [keyword]);
 

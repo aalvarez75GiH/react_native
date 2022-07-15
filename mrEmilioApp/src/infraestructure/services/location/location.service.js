@@ -1,10 +1,7 @@
 import camelize from "camelize";
-
+import { host } from "../../../util/env";
 export const locationRequest = (searchTerm) => {
-  return fetch(
-    // `http://10.0.2.2:5001/mremilio-b84c7/us-central1/geolocation?city=${searchTerm}`
-    `https://us-central1-mremilio-b84c7.cloudfunctions.net/geolocation?city=${searchTerm}`
-  )
+  return fetch(`${host}/geolocation?city=${searchTerm}`)
     .then((res) => {
       if (!res) {
         return "No hay tiendas en esta área";

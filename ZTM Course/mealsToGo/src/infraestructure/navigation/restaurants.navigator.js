@@ -6,6 +6,8 @@ import {
 
 import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
 import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurant-detail.screen";
+import { CheckoutScreen } from "../../features/checkout/screens/checkout.screen";
+import { CheckoutNavigator } from "./checkout.navigator";
 
 const RestaurantStack = createStackNavigator();
 

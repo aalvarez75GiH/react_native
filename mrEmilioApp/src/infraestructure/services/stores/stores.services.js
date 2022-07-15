@@ -1,4 +1,5 @@
 import camelize from "camelize";
+import { host } from "../../../util/env";
 
 export const storesRequestByLocation = (location = "43.653225,-79.383186") => {
   return new Promise((resolve, reject) => {
@@ -11,10 +12,7 @@ export const storesRequestByLocation = (location = "43.653225,-79.383186") => {
 };
 
 export const storesRequestBySearchTerm = (searchTerm) => {
-  return fetch(
-    // `http://10.0.2.2:5001/mremilio-b84c7/us-central1/stores?city=${searchTerm}`
-    `https://us-central1-mremilio-b84c7.cloudfunctions.net/stores?city=${searchTerm}`
-  )
+  return fetch(`${host}/stores?city=${searchTerm}`)
     .then((res) => {
       if (!res) {
         return "No hay tiendas en esta ciudad";
@@ -28,10 +26,7 @@ export const storesRequestBySearchTerm = (searchTerm) => {
 };
 
 export const storeMenuRequestByID = (id) => {
-  return fetch(
-    // `http://10.0.2.2:5001/mremilio-b84c7/us-central1/storesMenus?storeId=${id}`
-    `https://us-central1-mremilio-b84c7.cloudfunctions.net/storesMenus?storeId=${id}`
-  )
+  return fetch(`https://${host}/storesMenus?storeId=${id}`)
     .then((res) => {
       if (!res) {
         return "No hay tiendas en esta ciudad";

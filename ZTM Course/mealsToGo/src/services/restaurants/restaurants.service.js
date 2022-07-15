@@ -1,15 +1,17 @@
 import camelize from "camelize";
 
-import { host } from "../../utils/env";
+import { host, isMock } from "../../utils/env";
 console.log(host);
 export const restaurantsRequest = (location) => {
-  return fetch(`${host}/placesNearBy?location=${location}`).then((res) => {
-    if (!res) {
-      return "There are no restaurants in this location";
+  return fetch(`${host}/placesNearBy?location=${location}&mock=${isMock}`).then(
+    (res) => {
+      if (!res) {
+        return "There are no restaurants in this location";
+      }
+      console.log(res);
+      return res.json();
     }
-    console.log(res);
-    return res.json();
-  });
+  );
 };
 // };
 

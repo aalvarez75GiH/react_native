@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { StyleSheet, View, Dimensions, Text } from "react-native";
+import { View } from "react-native";
 import MapView from "react-native-maps";
 
 // import { SafeArea } from "../../../components/utilities/safe-area.component";
@@ -8,12 +8,15 @@ import { Search } from "../components/search.component";
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 import { MapCallOut } from "../components/map.callout.component";
+import { Text } from "../../../components/typography/text.component";
+import { Spacer } from "../../../components/spacer/optimized.spacer.component";
 
-export const MapScreen = ({ navigation }) => {
+export const RestaurantsMap = ({ navigation }) => {
   const [latDelta, setLatDelta] = useState(0);
   const { location } = useContext(LocationContext);
+  const { error: restaurantsError } = useContext(RestaurantContext);
   const { lat, lng, viewport } = location;
-  //   console.log("this is viewport at MapScreen:", viewport);
+
   const { restaurants = [] } = useContext(RestaurantContext);
 
   useEffect(() => {
@@ -61,4 +64,23 @@ export const MapScreen = ({ navigation }) => {
       </View>
     </>
   );
+};
+
+export const MapScreen = ({ navigation }) => {
+  const { location } = useContext(LocationContext);
+  if (!location) {
+    return (
+      <Map
+        region={{
+          latitude: 0,
+          longitude: 0,
+          // latitudeDelta: latDelta,
+          // longitudeDelta: 0.02,
+        }}
+      >
+        <Text variant="error">There was a problem retrieving data</Text>
+      </Map>
+    );
+  }
+  return <RestaurantsMap navigation={navigation} />;
 };

@@ -1,19 +1,21 @@
 import React, { useContext, useState } from "react";
 import { ActivityIndicator } from "react-native-paper";
 import styled from "styled-components/native";
-import { FlatList, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import { RestaurantsInfoCard } from "../components/restaurants-Info-card";
 import { Spacer } from "../../../components/spacer/optimized.spacer.component";
 import { SafeArea } from "../../../components/utilities/safe-area.component";
 import { theme } from "../../../infraestructure/theme";
 import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
-import { Search } from "../components/search.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { LocationContext } from "../../../services/location/location.context";
+
+import { Search } from "../components/search.component";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
-import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { RestaurantList } from "../components/restaurant-list.styles";
 import { FadeInView } from "../../../components/animations/fade.animation";
+import { Text } from "../../../components/typography/text.component";
 
 //   ************ Styled Components ***************************
 
@@ -26,13 +28,25 @@ const LoadingContainer = styled.View`
   left: 50%;
 `;
 
+const ErrorMessageContainer = styled.View`
+  width: 100%;
+  height: 40px;
+  /* background-color: green; */
+`;
+
 // *************************************************************
 
 export const RestaurantsScreen = ({ navigation }) => {
-  const { restaurants, isLoading } = useContext(RestaurantContext);
+  const {
+    restaurants,
+    isLoading,
+    error: restaurantsError,
+  } = useContext(RestaurantContext);
   const { favourites } = useContext(FavouritesContext);
+  const { error: locationError } = useContext(LocationContext);
 
   const [isToggled, setIsToggled] = useState(false);
+  const hasError = !!restaurantsError || !!locationError;
 
   const onFavouritesToggle = () => {
     setIsToggled(!isToggled);
@@ -75,12 +89,20 @@ export const RestaurantsScreen = ({ navigation }) => {
             onNavigate={navigation.navigate}
           />
         )}
-
-        <RestaurantList
-          data={restaurants}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.name}
-        />
+        {hasError && (
+          <Spacer position="left" size="large">
+            <Text variant="error">
+              Something went wrong retrieving the data
+            </Text>
+          </Spacer>
+        )}
+        {!hasError && (
+          <RestaurantList
+            data={restaurants}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.name}
+          />
+        )}
       </SafeArea>
     </>
   );

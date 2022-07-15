@@ -1,5 +1,7 @@
+import { host } from "../../../util/env";
+
 export const productsRequest = () => {
-  return fetch(`https://us-central1-mremilio-b84c7.cloudfunctions.net/products`)
+  return fetch(`${host}/products`)
     .then((res) => {
       if (!res) {
         return "No hay productos";
