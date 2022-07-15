@@ -4,6 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StoresNavigator } from "./stores.navigator";
 import { HomeNavigator } from "./home.navigator";
 import { AccountNavigator } from "./account.navigator";
+import { CartNavigator } from "./cart.navigator";
 
 import { CartView } from "../../../src/views/cart/cart";
 import { theme } from "../theme";
@@ -12,6 +13,7 @@ import { ProductsContextProvider } from "../services/products/products.context";
 import { LocationContextProvider } from "../services/location/location.context";
 import { StoresContextProvider } from "../services/stores/stores.context";
 import { FavouritesContextProvider } from "../services/favourites/favourites.context";
+import { CartContextProvider } from "../services/cart/cart.context";
 
 const Tab = createBottomTabNavigator();
 const Tab_icon = {
@@ -36,18 +38,20 @@ export const AppNavigator = () => {
       <LocationContextProvider>
         <StoresContextProvider>
           <ProductsContextProvider>
-            <Tab.Navigator
-              screenOptions={createScreenOptions}
-              tabBarOptions={{
-                activeTintColor: theme.colors.brand.tertiary,
-                inactiveTintColor: theme.colors.ui.secondary,
-              }}
-            >
-              <Tab.Screen name="home" component={HomeNavigator} />
-              <Tab.Screen name="stores" component={StoresNavigator} />
-              <Tab.Screen name="cart" component={CartView} />
-              <Tab.Screen name="account" component={AccountNavigator} />
-            </Tab.Navigator>
+            <CartContextProvider>
+              <Tab.Navigator
+                screenOptions={createScreenOptions}
+                tabBarOptions={{
+                  activeTintColor: theme.colors.brand.tertiary,
+                  inactiveTintColor: theme.colors.ui.secondary,
+                }}
+              >
+                <Tab.Screen name="home" component={HomeNavigator} />
+                <Tab.Screen name="stores" component={StoresNavigator} />
+                <Tab.Screen name="cart" component={CartNavigator} />
+                <Tab.Screen name="account" component={AccountNavigator} />
+              </Tab.Navigator>
+            </CartContextProvider>
           </ProductsContextProvider>
         </StoresContextProvider>
       </LocationContextProvider>

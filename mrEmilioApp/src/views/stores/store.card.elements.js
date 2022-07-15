@@ -74,12 +74,12 @@ export const ProductsToSaleTitle = styled(Text)`
 export const ProductMiniCardContainer = styled.View`
   width: 100%;
   height: auto;
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
+  background-color: green;
+  /* background-color: ${(props) => props.theme.colors.ui.quaternary}; */
   padding: 10px;
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
-  /* background-color: #010606; */
 `;
 
 // ************* ProductMiniCard

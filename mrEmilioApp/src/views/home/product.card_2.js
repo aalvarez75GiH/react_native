@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Rating } from "react-native-ratings";
 import { IconButton } from "react-native-paper";
+import { TouchableOpacity } from "react-native";
 
-import myImage from "../../../assets/pictures/suero.jpg";
-import { theme } from "../../infraestructure/theme";
 import {
   ProductCardContainer,
-  ProductCardCloseContainer,
-  CloseIconButton,
   ProductCardCover,
   Info,
   Description,
@@ -19,8 +16,10 @@ import {
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
 import { CloseButton } from "../../global_components/closeIconButton";
+import { CartContext } from "../../infraestructure/services/cart/cart.context";
 
 export const ProductCard2View = ({ product, navigation }) => {
+  const { addToCart } = useContext(CartContext);
   const {
     name = "Some Product",
     description = "Some description",
@@ -55,11 +54,18 @@ export const ProductCard2View = ({ product, navigation }) => {
           </Text>
         </BuyProductButton>
         <Spacer position="top" size="small"></Spacer>
-        <SendToCartButton>
-          <Text variant="label" style={{ color: "#010606" }}>
-            Send to cart
-          </Text>
-        </SendToCartButton>
+        <TouchableOpacity
+          onPress={() => {
+            addToCart(product);
+            navigation.navigate("cart");
+          }}
+        >
+          <SendToCartButton>
+            <Text variant="label" style={{ color: "#010606" }}>
+              Send to cart
+            </Text>
+          </SendToCartButton>
+        </TouchableOpacity>
       </Info>
     </ProductCardContainer>
   );

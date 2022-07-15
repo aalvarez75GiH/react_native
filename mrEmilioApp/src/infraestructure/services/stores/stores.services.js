@@ -26,7 +26,7 @@ export const storesRequestBySearchTerm = (searchTerm) => {
 };
 
 export const storeMenuRequestByID = (id) => {
-  return fetch(`https://${host}/storesMenus?storeId=${id}`)
+  return fetch(`${host}/storesMenus?storeId=${id}`)
     .then((res) => {
       if (!res) {
         return "No hay tiendas en esta ciudad";

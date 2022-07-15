@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native";
 
 import { SafeArea } from "../../global_components/safe-area.component";
 import { StoreCardView } from "./store.card";
@@ -43,6 +43,7 @@ export const StoreDetailScreen = ({ route, navigation }) => {
   }, []);
 
   const renderingProductToSale = menu.map((product, index) => {
+    console.log("product at store details screen:", product);
     return <ProductMiniCard product={product} key={index.toString()} />;
   });
 
