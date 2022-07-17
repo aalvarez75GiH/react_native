@@ -10,7 +10,7 @@ const CartStack = createStackNavigator();
 export const CartNavigator = () => {
   return (
     <CartStack.Navigator
-      headerMode="screen"
+      //   headerMode="screen"
       screenOptions={{
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}

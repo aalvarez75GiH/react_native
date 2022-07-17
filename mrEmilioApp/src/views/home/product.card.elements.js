@@ -23,6 +23,7 @@ export const ProductCardCoverForDetail = styled(Card.Cover)`
 
 export const Info = styled.View`
   padding: ${(props) => props.theme.space[3]};
+  /* background-color: green; */
 `;
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
@@ -58,7 +59,7 @@ export const BuyProductButton = styled.View`
   background-color: ${(props) => props.theme.colors.eCommerce.buyButton};
   justify-content: center;
   align-items: center;
-  /* border-radius: 45px; */
+  border-radius: 10px;
 `;
 export const SendToCartButton = styled.View`
   width: 100%;
@@ -66,7 +67,7 @@ export const SendToCartButton = styled.View`
   background-color: ${(props) => props.theme.colors.eCommerce.cartButton};
   justify-content: center;
   align-items: center;
-  /* border-radius: 45px; */
+  border-radius: 10px;
 `;
 
 export const ViewProductButton = styled.View`
@@ -76,4 +77,5 @@ export const ViewProductButton = styled.View`
   justify-content: center;
   align-items: center;
   margin-left: 60%;
+  border-radius: 10px;
 `;

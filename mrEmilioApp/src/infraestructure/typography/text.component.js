@@ -39,6 +39,10 @@ const big_title = (theme) => `
     font-size: ${theme.fontSizes.big_title};
 `;
 
+const small_title = (theme) => `
+    font-size: ${theme.fontSizes.title};
+`;
+
 const label = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
@@ -48,6 +52,17 @@ const labelBold = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.bold};
+`;
+
+const button_caption = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.button};
+`;
+
+const inverse_caption = (theme) => `
+font-family: ${theme.fonts.heading};
+font-size: ${theme.fontSizes.big_title};
+color: ${theme.colors.text.inverse};
 `;
 
 const variants = {
@@ -60,6 +75,9 @@ const variants = {
   hint,
   description,
   big_title,
+  small_title,
+  button_caption,
+  inverse_caption,
 };
 
 export const Text = styled.Text`

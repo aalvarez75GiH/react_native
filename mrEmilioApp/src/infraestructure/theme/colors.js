@@ -30,4 +30,5 @@ export const colors = {
     cartButton: "#ffd813",
     buyButton: "#ffa41d",
   },
+  small_buttons: "#f0f2f2",
 };

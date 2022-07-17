@@ -16,8 +16,9 @@ export const CartContextProvider = ({ children }) => {
       setSum(0);
       return;
     }
-    const total = cart.reduce((acc, { price }) => {
-      return (acc = acc + price);
+    const total = cart.reduce((acc, { price, quantity }) => {
+      console.log(price);
+      return (acc = acc + (price * quantity) / 100);
     }, 0);
 
     setSum(total);
@@ -25,6 +26,7 @@ export const CartContextProvider = ({ children }) => {
 
   const add = (item) => {
     console.log(item);
+
     // if (!restaurant || restaurant.placeId !== rst.placeId) {
     //   setRestaurant(rst);
     //   setCart([item]);
@@ -33,6 +35,29 @@ export const CartContextProvider = ({ children }) => {
     setCart([...cart, item]);
   };
   console.log(cart);
+
+  const incQuantity = (item) => {
+    const newState = cart.map((obj) => {
+      if (obj.id === item.id) {
+        console.log("this is Object:", obj);
+        return { ...obj, quantity: obj.quantity + 1 };
+      }
+      return obj;
+    });
+    setCart(newState);
+  };
+
+  const decQuantity = (item) => {
+    const newState = cart.map((obj) => {
+      if (obj.id === item.id) {
+        console.log("this is Object:", obj);
+        return { ...obj, quantity: obj.quantity - 1 };
+      }
+      return obj;
+    });
+    setCart(newState);
+  };
+
   //   const clearCart = () => {
   //     setCart([]);
   //   };
@@ -44,6 +69,8 @@ export const CartContextProvider = ({ children }) => {
         addToCart: add,
         // clearCart,
         sum,
+        incQuantity,
+        decQuantity,
       }}
     >
       {children}
