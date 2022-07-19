@@ -16,19 +16,16 @@ export const FavouritesContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (user && user.uid && favourites.length) {
-      console.log("go by save useEffect...");
       saveFavourites(favourites, user.uid);
     }
   }, [favourites, user]);
 
   const saveFavourites = async (value, uid) => {
-    console.log("uid:", uid);
     try {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(`@favourites-${uid}`, jsonValue);
     } catch (e) {
       console.log("error saving:", e);
-      // saving error
     }
   };
 

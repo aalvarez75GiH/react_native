@@ -24,7 +24,6 @@ export const LocationContextProvider = ({ children }) => {
       .then((res) => {
         setIsLoading(false);
         setLocation(res);
-        console.log("location that is shared:", res);
       })
       .catch((err) => {
         setIsLoading(false);

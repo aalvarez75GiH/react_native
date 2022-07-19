@@ -24,13 +24,12 @@ const AccountContainer = styled.View`
 
 export const CartView = () => {
   const { cart, sum, incQuantity, decQuantity } = useContext(CartContext);
-  const [order, setOrder] = useState([]);
 
   const isAndroid = Platform.OS === "android";
 
-  useEffect(() => {
-    setOrder(cart);
-  }, [cart]);
+  // useEffect(() => {
+  //   setOrder(cart);
+  // }, [cart]);
 
   if (!cart.length) {
     return (

@@ -15,7 +15,6 @@ export const ProductsContextProvider = ({ children }) => {
       .then((productsResult) => {
         setIsLoading(false);
         setProducts(productsResult);
-        console.log(products);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -27,7 +26,6 @@ export const ProductsContextProvider = ({ children }) => {
     retrieveProducts();
   }, []);
 
-  // console.log("this is products:", products);
   return (
     <ProductsContext.Provider
       value={{

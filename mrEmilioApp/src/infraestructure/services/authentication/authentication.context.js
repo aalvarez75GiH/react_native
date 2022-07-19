@@ -13,13 +13,14 @@ export const AuthenticationContextProvider = ({ children }) => {
   firebase.auth().onAuthStateChanged((usr) => {
     if (usr) {
       setUser(usr);
-    } else {
-      console.log(usr);
     }
+    // else {
+    //   console.log(usr);
+    // }
   });
 
   const onLogin = (email, password) => {
-    console.log("email and password:", email, password);
+    // console.log("email and password:", email, password);
     setIsLoading(true);
     loginRequest(email, password)
       .then((u) => {
@@ -32,7 +33,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
-  console.log("user from firebase:", user);
+  // console.log("user from firebase:", user);
   const onRegister = (email, password, repeatedPassword) => {
     setIsLoading(true);
     if (password !== repeatedPassword) {
