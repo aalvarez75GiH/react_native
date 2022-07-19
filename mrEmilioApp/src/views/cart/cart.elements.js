@@ -94,7 +94,7 @@ export const ProductCartButtonsContainer = styled(View)`
   align-items: center;
 `;
 
-export const SmallCardClearButton = styled(View)`
+export const SmallCardClearButton = styled(TouchableOpacity)`
   width: 25%;
   height: 40px;
   justify-content: center;

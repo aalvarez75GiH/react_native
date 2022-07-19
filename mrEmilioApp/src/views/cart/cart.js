@@ -23,7 +23,8 @@ const AccountContainer = styled.View`
 `;
 
 export const CartView = () => {
-  const { cart, sum, incQuantity, decQuantity } = useContext(CartContext);
+  const { cart, sum, incQuantity, decQuantity, removeFromCart, clearCart } =
+    useContext(CartContext);
 
   const isAndroid = Platform.OS === "android";
 
@@ -62,6 +63,7 @@ export const CartView = () => {
                   key={item.id}
                   incQuantity={incQuantity}
                   decQuantity={decQuantity}
+                  removeFromCart={removeFromCart}
                 />
               );
             })}

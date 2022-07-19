@@ -39,7 +39,7 @@ export const ProductCardView = ({ product }) => {
             readonly={true}
           />
           <SectionEnd>
-            <Text variant="labelBold">{product.price}$</Text>
+            <Text variant="labelBold">{product.price / 100}$</Text>
           </SectionEnd>
         </Section>
         <Address>{product.description}</Address>

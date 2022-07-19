@@ -39,7 +39,7 @@ export const ProductCard2View = ({ product, navigation }) => {
         <Text variant="label">{product.name}</Text>
         <Spacer />
         <Section>
-          <Text variant="labelBold">{product.price}$</Text>
+          <Text variant="labelBold">{product.price / 100}$</Text>
           <SectionEnd>
             <Text variant="success">{product.stock} in Stock</Text>
           </SectionEnd>
@@ -47,7 +47,6 @@ export const ProductCard2View = ({ product, navigation }) => {
         <Spacer />
         <Description>{product.description}</Description>
         <Spacer position="top" size="large"></Spacer>
-
         <BuyProductButton>
           <Text variant="label" style={{ color: "#010606" }}>
             Buy Now

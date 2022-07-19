@@ -18,7 +18,12 @@ import {
 } from "./cart.elements";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 
-export const ProductCartItem = ({ item, incQuantity, decQuantity }) => {
+export const ProductCartItem = ({
+  item,
+  incQuantity,
+  decQuantity,
+  removeFromCart,
+}) => {
   const [quant, setQuant] = useState(1);
   // const pricesByQuant = item.price * item.quantity;
   return (
@@ -41,13 +46,16 @@ export const ProductCartItem = ({ item, incQuantity, decQuantity }) => {
           </Text>
         </ProductCartInfo_stock>
         <ProductCartButtonsContainer>
-          <SmallCardClearButton elevation={5}>
+          <SmallCardClearButton
+            onPress={() => removeFromCart(item)}
+            elevation={5}
+          >
             <Text variant="button_caption">Delete</Text>
           </SmallCardClearButton>
           <QuantityContainer>
             <QuantityDecButton
               onPress={() => {
-                const test = decQuantity(item);
+                decQuantity(item);
               }}
             >
               <Text variant="button_caption"> - </Text>
@@ -60,7 +68,7 @@ export const ProductCartItem = ({ item, incQuantity, decQuantity }) => {
 
             <QuantityIncButton
               onPress={() => {
-                const test = incQuantity(item);
+                incQuantity(item);
               }}
             >
               <Text variant="button_caption"> + </Text>

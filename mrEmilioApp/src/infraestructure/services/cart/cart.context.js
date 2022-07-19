@@ -63,6 +63,19 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
+  const removeItem = (item) => {
+    const indexFound = cart.findIndex((obj) => {
+      if (obj.id === item.id) {
+        return true;
+      }
+      return false;
+    });
+    console.log(`item if found and index is ${indexFound} `);
+    setCart((cart) => {
+      return [...cart.slice(0, indexFound), ...cart.slice(indexFound + 1)];
+    });
+  };
+
   const incQuantity = (item) => {
     const isFound = itemFound(item);
     console.log(isFound);
@@ -88,6 +101,7 @@ export const CartContextProvider = ({ children }) => {
       value={{
         cart,
         addToCart: add,
+        removeFromCart: removeItem,
         // clearCart,
         sum,
         incQuantity,
