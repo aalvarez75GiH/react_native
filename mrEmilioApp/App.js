@@ -46,11 +46,7 @@ import {
   useFonts as useOswald,
   Oswald_400Regular,
 } from "@expo-google-fonts/oswald";
-import {
-  useFonts as useLato,
-  Lato_400Regular,
-  useFonts,
-} from "@expo-google-fonts/lato";
+import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 export default function App() {
   const [oswaldLoaded] = useOswald({

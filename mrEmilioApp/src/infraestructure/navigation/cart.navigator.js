@@ -4,6 +4,7 @@ import {
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { CartView } from "../../views/cart/cart";
+import { PaymentView } from "../../views/cart/payment.screen";
 
 const CartStack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export const CartNavigator = () => {
       }}
     >
       <CartStack.Screen name="My Cart" component={CartView} />
+      <CartStack.Screen name="My payment" component={PaymentView} />
     </CartStack.Navigator>
   );
 };

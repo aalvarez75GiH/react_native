@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { companyDataRequest } from "./cart.services";
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { AuthenticationContext } from "../authentication/authentication.context";
@@ -8,8 +9,9 @@ export const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
   //   const { user } = useContext(AuthenticationContext);
   const [cart, setCart] = useState([]);
-
   const [sum, setSum] = useState(0);
+  const [companyInfo, setCompanyInfo] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!cart.length) {
@@ -23,6 +25,10 @@ export const CartContextProvider = ({ children }) => {
 
     setSum(total);
   }, [cart]);
+
+  useEffect(() => {
+    retrieveCompanyFeesAndTaxes();
+  }, []);
 
   const itemFound = (item) => {
     const isFound = cart.some((prd) => {
@@ -61,6 +67,16 @@ export const CartContextProvider = ({ children }) => {
     if (!isFound) {
       setCart([...cart, item]);
     }
+  };
+
+  const retrieveCompanyFeesAndTaxes = () => {
+    companyDataRequest()
+      .then(({ companyFeesAndtaxes }) => {
+        setCompanyInfo(companyFeesAndtaxes);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   };
 
   const removeItem = (item) => {
@@ -106,6 +122,7 @@ export const CartContextProvider = ({ children }) => {
         sum,
         incQuantity,
         decQuantity,
+        companyInfo,
       }}
     >
       {children}

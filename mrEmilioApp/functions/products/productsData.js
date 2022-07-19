@@ -14,7 +14,7 @@ module.exports.products = [
     name: "Arequipe",
     description:
       "Crema acaramelada en base a leche perfecta para galletas, obleas y mucho más",
-    price: 1200,
+    price: 1199,
     stock: 5,
     size: "32oz",
     quantity: 1,
@@ -26,7 +26,7 @@ module.exports.products = [
     name: "Crema de leche",
     description:
       "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
-    price: 900,
+    price: 899,
     stock: 5,
     size: "8oz",
     quantity: 1,
@@ -38,7 +38,7 @@ module.exports.products = [
     name: "Suero de leche",
     description:
       "Créma en base a leche, salada y perfecta para comer con huevos y arepas",
-    price: 700,
+    price: 699,
     stock: 5,
     size: "32oz",
     quantity: 1,
@@ -50,7 +50,7 @@ module.exports.products = [
     name: "Tequéños",
     description:
       "Pequeños envoltorios de ojáldre rellenos con exquisito quéso, perfecto para picar",
-    price: 1600,
+    price: 1599,
     stock: 6,
     size: "1.20oz",
     quantity: 1,
@@ -61,7 +61,7 @@ module.exports.products = [
   {
     name: "Salsas",
     description: "Salsas de Ájo, Maíz y tocineta",
-    price: 400,
+    price: 399,
     stock: 8,
     size: "8oz",
     quantity: 1,

@@ -51,7 +51,7 @@ const label = (theme) => `
 const labelBold = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
-    font-weight: ${theme.fontWeights.bold};
+    font-weight: ${theme.fontWeights.extraBold};
 `;
 
 const button_caption = (theme) => `

@@ -22,7 +22,7 @@ const AccountContainer = styled.View`
   align-items: center;
 `;
 
-export const CartView = () => {
+export const CartView = ({ navigation }) => {
   const { cart, sum, incQuantity, decQuantity, removeFromCart, clearCart } =
     useContext(CartContext);
 
@@ -47,7 +47,9 @@ export const CartView = () => {
       <SafeArea>
         <ScrollView>
           <CartViewHeader>
-            <CartBuyProductButton>
+            <CartBuyProductButton
+              onPress={() => navigation.navigate("My payment")}
+            >
               <Text variant="label" style={{ color: "#010606" }}>
                 Proceed to checkout ({cart.length}
                 {cart.length > 1 ? "  items" : "  item"})
@@ -72,7 +74,7 @@ export const CartView = () => {
             <Spacer position="left" size="large">
               <Text
                 style={{
-                  marginLeft: isAndroid ? 220 : 265,
+                  marginLeft: isAndroid ? 200 : 245,
                 }}
                 variant="small_title"
               >

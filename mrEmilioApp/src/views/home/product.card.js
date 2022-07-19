@@ -15,6 +15,7 @@ import { Spacer } from "../../../src/global_components/optimized.spacer.componen
 import { FavouriteComponent } from "../../global_components/favourites/favourite.component";
 
 export const ProductCardView = ({ product }) => {
+  console.log(product.price);
   const {
     name = "Some Product",
     description = "Some description",

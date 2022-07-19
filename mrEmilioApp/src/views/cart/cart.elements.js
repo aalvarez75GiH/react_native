@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { View, Image, TextInput, TouchableOpacity } from "react-native";
-import { Avatar } from "react-native-paper";
+import { Avatar, List } from "react-native-paper";
 
 // ************* Empty cart *********************
 export const EmptyCartIconContainer = styled.View`
@@ -23,7 +23,7 @@ export const CartViewHeader = styled.View`
   align-items: center;
   /* background-color: red; */
 `;
-export const CartBuyProductButton = styled.View`
+export const CartBuyProductButton = styled(TouchableOpacity)`
   width: 95%;
   height: 50px;
   background-color: ${(props) => props.theme.colors.eCommerce.buyButton};
@@ -141,4 +141,30 @@ export const QuantityIncButton = styled(TouchableOpacity)`
   border-bottom-right-radius: 10px;
   border: 1px solid #dedede;
   background-color: ${(props) => props.theme.colors.small_buttons};
+`;
+
+// *************** Order/Payment Screen*************************
+
+export const OrderInfoContainer = styled.View`
+  width: 95%;
+  height: 230px;
+  /* background-color: green; */
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  margin-left: 3%;
+  flex: 1;
+  flex-direction: row;
+`;
+
+export const OrderInfoDesc = styled.View`
+  width: 75%;
+  height: auto;
+  /* background-color: lightblue; */
+  padding: 20px;
+`;
+export const OrderInfoAmounts = styled.View`
+  width: 25%;
+  height: auto;
+  padding: 14px;
+  /* background-color: lightyellow; */
 `;
