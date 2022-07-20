@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
-import { companyDataRequest } from "./cart.services";
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { AuthenticationContext } from "../authentication/authentication.context";
+import { companyDataRequest } from "./cart.services";
 
 export const CartContext = createContext();
 

@@ -20,7 +20,8 @@ import {
   OrderInfoDesc,
   OrderInfoAmounts,
 } from "./cart.elements";
-import { Lato_400Regular } from "@expo-google-fonts/lato";
+
+import { CreditCardInputComponent } from "./credit-card-input.component";
 
 //   ************ Styled Components ***************************
 const AccountContainer = styled.View`
@@ -122,18 +123,19 @@ export const PaymentView = () => {
               </Spacer>
             </OrderInfoAmounts>
           </OrderInfoContainer>
-          {/* <CartViewFooter>
+          <CartViewFooter>
+            <Spacer position="bottom" size="large" />
             <Spacer position="left" size="large">
-              <Text
-                style={{
-                  marginLeft: isAndroid ? 220 : 265,
-                }}
-                variant="small_title"
+              <MyText
+                variant="button_caption"
+                style={{ fontWeight: "500", fontSize: 18 }}
               >
-                Order total: ${sum}
-              </Text>
+                Your payment method
+              </MyText>
             </Spacer>
-          </CartViewFooter> */}
+            <Spacer position="bottom" size="large" />
+            <CreditCardInputComponent />
+          </CartViewFooter>
         </ScrollView>
       </SafeArea>
     </>
