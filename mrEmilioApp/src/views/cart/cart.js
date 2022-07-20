@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Platform } from "react-native";
+import { Platform, Text as IosText } from "react-native";
 
 import { Text } from "../../infraestructure/typography/text.component";
 import { SafeArea } from "../../global_components/safe-area.component";
@@ -15,6 +15,8 @@ import {
   EmptyCartIcon,
   CartViewFooter,
 } from "./cart.elements";
+import { LeftButton } from "../../global_components/leftIconButton";
+import { GoHomeButton } from "../../global_components/goHomeButton";
 
 //   ************ Styled Components ***************************
 const AccountContainer = styled.View`
@@ -46,16 +48,11 @@ export const CartView = ({ navigation }) => {
     <>
       <SafeArea>
         <ScrollView>
-          <CartViewHeader>
-            <CartBuyProductButton
-              onPress={() => navigation.navigate("My payment")}
-            >
-              <Text variant="label" style={{ color: "#010606" }}>
-                Proceed to checkout ({cart.length}
-                {cart.length > 1 ? "  items" : "  item"})
-              </Text>
-            </CartBuyProductButton>
+          <CartViewHeader onPress={() => navigation.goBack()}>
+            <LeftButton navigation={navigation} />
+            <IosText>Continue shopping</IosText>
           </CartViewHeader>
+          {/* <Spacer position="bottom" size="medium" /> */}
           <AccountContainer>
             {cart.map((item, index) => {
               return (
@@ -81,6 +78,17 @@ export const CartView = ({ navigation }) => {
                 Subtotal: ${sum}
               </Text>
             </Spacer>
+            <Spacer position="top" size="extraLarge">
+              <CartBuyProductButton
+                onPress={() => navigation.navigate("Delivery methods")}
+              >
+                <Text variant="label" style={{ color: "#010606" }}>
+                  Proceed to checkout ({cart.length}
+                  {cart.length > 1 ? "  items" : "  item"})
+                </Text>
+              </CartBuyProductButton>
+            </Spacer>
+            <Spacer position="bottom" size="large" />
           </CartViewFooter>
         </ScrollView>
       </SafeArea>

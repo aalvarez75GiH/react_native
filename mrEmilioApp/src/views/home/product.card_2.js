@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Rating } from "react-native-ratings";
 import { IconButton } from "react-native-paper";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Text as IosBoldText } from "react-native";
 
 import {
   ProductCardContainer,
@@ -15,7 +15,7 @@ import {
 } from "./product.card.elements";
 import { Text } from "../../../src/infraestructure/typography/text.component";
 import { Spacer } from "../../../src/global_components/optimized.spacer.component";
-import { CloseButton } from "../../global_components/closeIconButton";
+import { LeftButton } from "../../global_components/leftIconButton";
 import { CartContext } from "../../infraestructure/services/cart/cart.context";
 
 export const ProductCard2View = ({ product, navigation }) => {
@@ -33,13 +33,16 @@ export const ProductCard2View = ({ product, navigation }) => {
 
   return (
     <ProductCardContainer elevation={5}>
-      <CloseButton navigation={navigation} />
+      <LeftButton navigation={navigation} />
       <ProductCardCover key={product.name} source={{ uri: product.picture }} />
       <Info>
         <Text variant="label">{product.name}</Text>
         <Spacer />
         <Section>
-          <Text variant="labelBold">{product.price / 100}$</Text>
+          <IosBoldText style={{ fontWeight: "700", fontSize: 18 }}>
+            ${product.price / 100}
+          </IosBoldText>
+          {/* <Text variant="labelBold">${product.price / 100}</Text> */}
           <SectionEnd>
             <Text variant="success">{product.stock} in Stock</Text>
           </SectionEnd>

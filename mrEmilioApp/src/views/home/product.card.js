@@ -1,5 +1,6 @@
 import React from "react";
 import { Rating } from "react-native-ratings";
+import { Text as IosBoldText } from "react-native";
 
 import {
   ProductCardContainer,
@@ -39,7 +40,12 @@ export const ProductCardView = ({ product }) => {
             readonly={true}
           />
           <SectionEnd>
-            <Text variant="labelBold">{product.price / 100}$</Text>
+            <IosBoldText
+              // variant="labelBold"
+              style={{ fontWeight: "700", fontSize: 18 }}
+            >
+              {product.price / 100}$
+            </IosBoldText>
           </SectionEnd>
         </Section>
         <Address>{product.description}</Address>

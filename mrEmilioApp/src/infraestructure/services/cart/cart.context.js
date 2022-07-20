@@ -12,6 +12,7 @@ export const CartContextProvider = ({ children }) => {
   const [sum, setSum] = useState(0);
   const [companyInfo, setCompanyInfo] = useState(null);
   const [error, setError] = useState(null);
+  const [deliveryType, setDeliveryType] = useState("");
 
   useEffect(() => {
     if (!cart.length) {
@@ -108,6 +109,9 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
+  const changingDeliveryType = (type) => {
+    setDeliveryType(type);
+  };
   //   const clearCart = () => {
   //     setCart([]);
   //   };
@@ -123,6 +127,8 @@ export const CartContextProvider = ({ children }) => {
         incQuantity,
         decQuantity,
         companyInfo,
+        deliveryType,
+        changingDeliveryType,
       }}
     >
       {children}

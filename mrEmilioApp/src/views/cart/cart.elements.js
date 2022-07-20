@@ -16,10 +16,10 @@ export const EmptyCartIcon = styled(Avatar.Icon).attrs({
 `;
 
 // ********** Cart ***************************
-export const CartViewHeader = styled.View`
+export const CartViewHeader = styled(TouchableOpacity)`
+  flex-direction: row;
   width: 100%;
-  height: 90px;
-  justify-content: center;
+  height: 50px;
   align-items: center;
   /* background-color: red; */
 `;
@@ -34,7 +34,7 @@ export const CartBuyProductButton = styled(TouchableOpacity)`
 `;
 export const CartViewFooter = styled.View`
   width: 100%;
-  height: 90px;
+  height: auto;
   justify-content: center;
   /* align-items: flex-end; */
   /* background-color: red; */
@@ -167,4 +167,26 @@ export const OrderInfoAmounts = styled.View`
   height: auto;
   padding: 14px;
   /* background-color: lightyellow; */
+`;
+
+export const DeliveryTypeContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  /* background-color: red; */
+`;
+export const DeliveryType = styled(TouchableOpacity)`
+  width: 30%;
+  height: 100px;
+  /* background-color: green; */
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DeliveryImage = styled(Image)`
+  width: 100px;
+  height: 100px;
 `;

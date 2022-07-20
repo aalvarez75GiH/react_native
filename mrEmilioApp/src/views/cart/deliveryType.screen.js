@@ -1,27 +1,25 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Platform } from "react-native";
-import { List } from "react-native-paper";
+import { Platform, TouchableOpacity } from "react-native";
 
 import { Text } from "../../infraestructure/typography/text.component";
 import { Text as IosBoldText } from "react-native";
 import { SafeArea } from "../../global_components/safe-area.component";
 import { CartContext } from "../../infraestructure/services/cart/cart.context";
 import { Spacer } from "../../global_components/optimized.spacer.component";
-import { ProductCartItem } from "./product.cart.Item";
+import myImage from "../../../assets/pictures/ui/3741735_bussiness_ecommerce_marketplace_onlinestore_sotore_icon.png";
+import myImage2 from "../../../assets/pictures/ui/delivery_512.png";
+
 import {
   CartViewHeader,
-  CartBuyProductButton,
-  EmptyCartIconContainer,
-  EmptyCartIcon,
-  CartViewFooter,
-  OrderInfoContainer,
-  OrderInfoDesc,
-  OrderInfoAmounts,
+  DeliveryTypeContainer,
+  DeliveryType,
+  DeliveryImage,
 } from "./cart.elements";
 
 import { CreditCardInputComponent } from "./credit-card-input.component";
+import { Navigation } from "../../infraestructure/navigation";
 
 //   ************ Styled Components ***************************
 const AccountContainer = styled.View`
@@ -29,58 +27,45 @@ const AccountContainer = styled.View`
   align-items: center;
 `;
 
-export const PaymentView = () => {
-  const { cart, sum, companyInfo, deliveryType } = useContext(CartContext);
-  console.log("this is company info:", companyInfo);
-  console.log("this is my Delivery Type:", deliveryType);
+export const DeliveryTypeView = ({ navigation }) => {
+  const { deliveryType, changingDeliveryType } = useContext(CartContext);
+  //   console.log("this is companyInfo:", companyInfo);
   const isAndroid = Platform.OS === "android";
 
-  //   const estimatedTaxToBeCollected = estimatedTax.toFixed(2);
-
-  //   **********  Math Calculations *********************
-  const shippingAndHandling_fee =
-    deliveryType === "delivery"
-      ? companyInfo.shippingAndHandling_fee.toFixed(2)
-      : companyInfo.pickup_fee.toFixed(2);
-  const discount = companyInfo.discount.toFixed(2);
-
-  const totalBeforeTaxesSum =
-    deliveryType === "delivery"
-      ? sum + companyInfo.shippingAndHandling_fee - companyInfo.discount
-      : sum + companyInfo.pickup_fee - companyInfo.discount;
-
-  const estimatedTaxTo =
-    ((companyInfo.tax_fee / 100) * totalBeforeTaxesSum) / 100;
-
-  const estimatedTaxToBeCollected = estimatedTaxTo.toFixed(2);
-
-  const total = totalBeforeTaxesSum + estimatedTaxTo;
-  const total_order = total.toFixed(2);
-  //   //   *****************************************************
-
-  if (!cart.length) {
-    return (
-      <SafeArea>
-        <EmptyCartIconContainer>
-          <EmptyCartIcon icon="cart-off" />
-          <Text>Your cart is empty</Text>
-        </EmptyCartIconContainer>
-      </SafeArea>
-    );
-  }
   return (
     <>
       <SafeArea>
         <ScrollView>
           <CartViewHeader>
-            <CartBuyProductButton>
-              <Text variant="label" style={{ color: "#010606" }}>
-                Place your order ({cart.length}
-                {cart.length > 1 ? "  items" : "  item"})
-              </Text>
-            </CartBuyProductButton>
+            <Spacer position="left" size="extraLarge">
+              <IosBoldText style={{ fontWeight: "500", fontSize: 18 }}>
+                How do you want to get your product?
+              </IosBoldText>
+            </Spacer>
           </CartViewHeader>
-          <OrderInfoContainer>
+          <Spacer position="top" size="large"></Spacer>
+          <DeliveryTypeContainer>
+            <DeliveryType
+              onPress={() => {
+                changingDeliveryType("pickup");
+                navigation.navigate("My payment");
+              }}
+            >
+              <DeliveryImage source={myImage} />
+              <Text variant="label">Pickup</Text>
+            </DeliveryType>
+
+            <DeliveryType
+              onPress={() => {
+                changingDeliveryType("delivery");
+                navigation.navigate("My payment");
+              }}
+            >
+              <DeliveryImage source={myImage2} />
+              <Text variant="label">Delivery</Text>
+            </DeliveryType>
+          </DeliveryTypeContainer>
+          {/* <OrderInfoContainer>
             <OrderInfoDesc>
               <Spacer position="bottom" size="medium">
                 <Text variant="label">items ({cart.length}):</Text>
@@ -121,14 +106,13 @@ export const PaymentView = () => {
                 <Text variant="label"> ${estimatedTaxToBeCollected}</Text>
               </Spacer>
               <Spacer position="top" size="medium">
-                {/* <Text variant="labelBold">Order Total:</Text> */}
                 <IosBoldText style={{ fontWeight: "700", fontSize: 18 }}>
                   ${total_order}
                 </IosBoldText>
               </Spacer>
             </OrderInfoAmounts>
-          </OrderInfoContainer>
-          <CartViewFooter>
+          </OrderInfoContainer> */}
+          {/* <CartViewFooter>
             <Spacer position="bottom" size="large" />
             <Spacer position="left" size="large">
               <IosBoldText style={{ fontWeight: "500", fontSize: 18 }}>
@@ -137,7 +121,7 @@ export const PaymentView = () => {
             </Spacer>
             <Spacer position="bottom" size="large" />
             <CreditCardInputComponent />
-          </CartViewFooter>
+          </CartViewFooter> */}
         </ScrollView>
       </SafeArea>
     </>

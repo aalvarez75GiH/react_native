@@ -6,6 +6,7 @@ module.exports.companyData = {
   },
   companyFeesAndtaxes: {
     shippingAndHandling_fee: 3,
+    pickup_fee: 0,
     discount: 1,
     tax_fee: 825,
   },
