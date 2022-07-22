@@ -18,8 +18,8 @@ export const CartNavigator = () => {
       }}
     >
       <CartStack.Screen name="My Cart" component={CartView} />
-      <CartStack.Screen name="Delivery methods" component={DeliveryTypeView} />
-      <CartStack.Screen name="My payment" component={PaymentView} />
+      <CartStack.Screen name="Delivery" component={DeliveryTypeView} />
+      <CartStack.Screen name="My order" component={PaymentView} />
     </CartStack.Navigator>
   );
 };

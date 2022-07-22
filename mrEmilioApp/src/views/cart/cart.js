@@ -10,7 +10,7 @@ import { Spacer } from "../../global_components/optimized.spacer.component";
 import { ProductCartItem } from "./product.cart.Item";
 import {
   CartViewHeader,
-  CartBuyProductButton,
+  CartProceedButton,
   EmptyCartIconContainer,
   EmptyCartIcon,
   CartViewFooter,
@@ -79,14 +79,14 @@ export const CartView = ({ navigation }) => {
               </Text>
             </Spacer>
             <Spacer position="top" size="extraLarge">
-              <CartBuyProductButton
-                onPress={() => navigation.navigate("Delivery methods")}
+              <CartProceedButton
+                onPress={() => navigation.navigate("Delivery")}
               >
                 <Text variant="label" style={{ color: "#010606" }}>
                   Proceed to checkout ({cart.length}
                   {cart.length > 1 ? "  items" : "  item"})
                 </Text>
-              </CartBuyProductButton>
+              </CartProceedButton>
             </Spacer>
             <Spacer position="bottom" size="large" />
           </CartViewFooter>

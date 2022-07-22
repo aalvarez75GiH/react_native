@@ -1,6 +1,15 @@
 import styled from "styled-components/native";
-import { View, Image, TextInput, TouchableOpacity } from "react-native";
-import { Avatar, List } from "react-native-paper";
+import {
+  View,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { TextInput as RNPTextInput } from "react-native-paper";
+import { Avatar, List, Button } from "react-native-paper";
+import { Text } from "../../infraestructure/typography/text.component";
 
 // ************* Empty cart *********************
 export const EmptyCartIconContainer = styled.View`
@@ -23,7 +32,16 @@ export const CartViewHeader = styled(TouchableOpacity)`
   align-items: center;
   /* background-color: red; */
 `;
-export const CartBuyProductButton = styled(TouchableOpacity)`
+
+export const PaymentInfoError = styled.View`
+  width: 100%;
+  height: 25px;
+  /* background-color: blue; */
+  /* align-items: center; */
+  justify-content: center;
+`;
+
+export const CartProceedButton = styled(TouchableOpacity)`
   width: 95%;
   height: 50px;
   background-color: ${(props) => props.theme.colors.eCommerce.buyButton};
@@ -32,7 +50,7 @@ export const CartBuyProductButton = styled(TouchableOpacity)`
   margin-left: 2%;
   border-radius: 10px;
 `;
-export const CartViewFooter = styled.View`
+export const CartViewFooter = styled(View)`
   width: 100%;
   height: auto;
   justify-content: center;
@@ -143,6 +161,43 @@ export const QuantityIncButton = styled(TouchableOpacity)`
   background-color: ${(props) => props.theme.colors.small_buttons};
 `;
 
+// ************ Delivery Type Screen *********************
+export const DeliveryTypeContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  /* background-color: red; */
+`;
+export const DeliveryType = styled(TouchableOpacity)`
+  width: 30%;
+  height: 100px;
+  /* background-color: green; */
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DeliveryImage = styled(Image)`
+  width: 100px;
+  height: 100px;
+`;
+
+export const CartBuyProductButton = styled(Button)`
+  width: 95%;
+  height: 50px;
+  background-color: ${(props) => props.theme.colors.eCommerce.buyButton};
+  /* background-color: ${(props) =>
+    props.isIncomplete
+      ? props.theme.colors.ui.disabled
+      : props.theme.colors.eCommerce.buyButton}; */
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+  border-radius: 10px;
+`;
+
 // *************** Order/Payment Screen*************************
 
 export const OrderInfoContainer = styled.View`
@@ -169,24 +224,6 @@ export const OrderInfoAmounts = styled.View`
   /* background-color: lightyellow; */
 `;
 
-export const DeliveryTypeContainer = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  height: 200px;
-  /* background-color: red; */
-`;
-export const DeliveryType = styled(TouchableOpacity)`
-  width: 30%;
-  height: 100px;
-  /* background-color: green; */
-  justify-content: center;
-  align-items: center;
-`;
-
-export const DeliveryImage = styled(Image)`
-  width: 100px;
-  height: 100px;
+export const NameInput = styled(RNPTextInput)`
+  margin: ${(props) => props.theme.space[3]};
 `;

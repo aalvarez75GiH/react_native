@@ -48,7 +48,7 @@ export const DeliveryTypeView = ({ navigation }) => {
             <DeliveryType
               onPress={() => {
                 changingDeliveryType("pickup");
-                navigation.navigate("My payment");
+                navigation.navigate("My order");
               }}
             >
               <DeliveryImage source={myImage} />
@@ -58,7 +58,7 @@ export const DeliveryTypeView = ({ navigation }) => {
             <DeliveryType
               onPress={() => {
                 changingDeliveryType("delivery");
-                navigation.navigate("My payment");
+                navigation.navigate("My order");
               }}
             >
               <DeliveryImage source={myImage2} />

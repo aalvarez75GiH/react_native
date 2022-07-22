@@ -1,17 +1,20 @@
 import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Platform } from "react-native";
-import { List } from "react-native-paper";
+import { Platform, KeyboardAvoidingView, StyleSheet } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import { Text } from "../../infraestructure/typography/text.component";
 import { Text as IosBoldText } from "react-native";
+import { Text as SmallErrorText } from "../../infraestructure/typography/text.component";
+
 import { SafeArea } from "../../global_components/safe-area.component";
 import { CartContext } from "../../infraestructure/services/cart/cart.context";
 import { Spacer } from "../../global_components/optimized.spacer.component";
 import { ProductCartItem } from "./product.cart.Item";
 import {
   CartViewHeader,
+  PaymentInfoError,
   CartBuyProductButton,
   EmptyCartIconContainer,
   EmptyCartIcon,
@@ -19,9 +22,12 @@ import {
   OrderInfoContainer,
   OrderInfoDesc,
   OrderInfoAmounts,
+  NameInput,
 } from "./cart.elements";
 
 import { CreditCardInputComponent } from "./credit-card-input.component";
+import { paymentRequest } from "../../infraestructure/services/cart/cart.services";
+import { setGestureState } from "react-native-reanimated/lib/reanimated2/NativeMethods";
 
 //   ************ Styled Components ***************************
 const AccountContainer = styled.View`
@@ -31,8 +37,12 @@ const AccountContainer = styled.View`
 
 export const PaymentView = () => {
   const { cart, sum, companyInfo, deliveryType } = useContext(CartContext);
-  console.log("this is company info:", companyInfo);
-  console.log("this is my Delivery Type:", deliveryType);
+  const [name, setName] = useState("");
+  const [card, setCard] = useState(null);
+  const [isIncomplete, setIsIncomplete] = useState(true);
+  const [test, setTest] = useState(false);
+  //   console.log("this is company info:", companyInfo);
+  //   console.log("this is my Delivery Type:", deliveryType);
   const isAndroid = Platform.OS === "android";
 
   //   const estimatedTaxToBeCollected = estimatedTax.toFixed(2);
@@ -57,7 +67,21 @@ export const PaymentView = () => {
   const total = totalBeforeTaxesSum + estimatedTaxTo;
   const total_order = total.toFixed(2);
   //   //   *****************************************************
+  const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
+  const onPay = async () => {
+    if (isIncomplete) {
+      setTest(true);
+      return;
+    }
+    paymentRequest(card.id, total, name);
+  };
 
+  const handlingIsInComplete = (value) => {
+    console.log("this is value:", value);
+    setTest(false);
+    setIsIncomplete(value);
+  };
+  console.log("this is isInComplete#2:", isIncomplete);
   if (!cart.length) {
     return (
       <SafeArea>
@@ -71,15 +95,36 @@ export const PaymentView = () => {
   return (
     <>
       <SafeArea>
-        <ScrollView>
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          extraHeight={150}
+          style={StyleSheet.container}
+        >
+          {/* <ScrollView> */}
+          <Spacer position="top" size="large" />
           <CartViewHeader>
-            <CartBuyProductButton>
+            <CartBuyProductButton
+              //   disabled={isIncomplete ? true : false}
+              uppercase={false}
+              onPress={() => onPay()}
+              isIncomplete={isIncomplete}
+            >
               <Text variant="label" style={{ color: "#010606" }}>
                 Place your order ({cart.length}
                 {cart.length > 1 ? "  items" : "  item"})
               </Text>
             </CartBuyProductButton>
           </CartViewHeader>
+          {test && (
+            <PaymentInfoError>
+              <Spacer position="left" size="large">
+                <SmallErrorText variant="small_error">
+                  Enter payment information
+                </SmallErrorText>
+              </Spacer>
+            </PaymentInfoError>
+          )}
+          <Spacer position="top" size="large" />
           <OrderInfoContainer>
             <OrderInfoDesc>
               <Spacer position="bottom" size="medium">
@@ -128,17 +173,33 @@ export const PaymentView = () => {
               </Spacer>
             </OrderInfoAmounts>
           </OrderInfoContainer>
+
           <CartViewFooter>
             <Spacer position="bottom" size="large" />
             <Spacer position="left" size="large">
               <IosBoldText style={{ fontWeight: "500", fontSize: 18 }}>
-                Your payment method
+                Your payment information
               </IosBoldText>
             </Spacer>
             <Spacer position="bottom" size="large" />
-            <CreditCardInputComponent />
+
+            <NameInput
+              label="Credit card holder Full name"
+              onChangeText={(value) => setName(value)}
+              value={name}
+            />
+            <Spacer position="top" size="medium">
+              {name.length > 0 && (
+                <CreditCardInputComponent
+                  name={name}
+                  onSuccess={(response) => setCard(response)}
+                  handlingIsInComplete={handlingIsInComplete}
+                />
+              )}
+            </Spacer>
           </CartViewFooter>
-        </ScrollView>
+          {/* </ScrollView> */}
+        </KeyboardAwareScrollView>
       </SafeArea>
     </>
   );

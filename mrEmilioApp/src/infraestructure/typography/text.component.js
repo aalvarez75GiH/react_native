@@ -65,6 +65,13 @@ font-size: ${theme.fontSizes.big_title};
 color: ${theme.colors.text.inverse};
 `;
 
+const small_error = (theme) => `
+font-family: ${theme.fonts.heading};
+font-size: ${theme.fontSizes.description};
+color: ${theme.colors.ui.error}
+font-weight: ${theme.fontWeights.bold};
+`;
+
 const variants = {
   body,
   label,
@@ -78,6 +85,7 @@ const variants = {
   small_title,
   button_caption,
   inverse_caption,
+  small_error,
 };
 
 export const Text = styled.Text`
