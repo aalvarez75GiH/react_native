@@ -1,0 +1,13 @@
+// Setting Up Firebase environment configuration
+
+// setting up keys:
+// firebase functions:config:set 'someservice'.key="THE API KEY"
+
+// getting current environment
+//firebase functions:config:get
+
+// transferring keys to our config file
+//firebase functions:config:get > .runtimeconfig.json
+
+//unsetting keys from our config environment
+//firebase functions:config:unset 'someservice'
