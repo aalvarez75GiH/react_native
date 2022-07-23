@@ -3,6 +3,7 @@ import { View, Image } from "react-native";
 import { Avatar, Button } from "react-native-paper";
 import { theme } from "../../../infraestructure/theme";
 import { TextInput } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 
 export const CartIconContainer = styled.View`
   align-items: center;
@@ -34,4 +35,15 @@ export const ClearButton = styled(Button).attrs({
   align-self: center;
   padding: ${(props) => props.theme.space[2]};
   /* height: 20px; */
+`;
+
+export const PaymentProcessing = styled(ActivityIndicator).attrs({
+  size: 128,
+  animating: true,
+  color: theme.colors.ui.primary,
+})`
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  z-index: 999;
 `;

@@ -7,7 +7,7 @@ const detect = Platform.OS === "android";
 
 import { colors } from "../../../infraestructure/theme/colors";
 
-export const AccountBackground = styled.ImageBackground.attrs({
+export const AccountBackground = styled(ImageBackground).attrs({
   source: require("../../../../assets/home_bg.jpg"),
 })`
   flex: 1;
@@ -15,7 +15,7 @@ export const AccountBackground = styled.ImageBackground.attrs({
   justify-content: center;
 `;
 
-export const AccountCover = styled.View`
+export const AccountCover = styled(View)`
   position: absolute;
   width: 100%;
   height: 100%;

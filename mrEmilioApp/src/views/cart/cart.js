@@ -75,7 +75,7 @@ export const CartView = ({ navigation }) => {
                 }}
                 variant="small_title"
               >
-                Subtotal: ${sum}
+                Subtotal: ${sum / 100}
               </Text>
             </Spacer>
             <Spacer position="top" size="extraLarge">

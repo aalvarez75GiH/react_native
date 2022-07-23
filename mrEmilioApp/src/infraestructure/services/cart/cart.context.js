@@ -21,7 +21,7 @@ export const CartContextProvider = ({ children }) => {
     }
     const total = cart.reduce((acc, { price, quantity }) => {
       // console.log('this is price at CartContext:', price);
-      return (acc = acc + (price * quantity) / 100);
+      return (acc = acc + price * quantity);
     }, 0);
 
     setSum(total);

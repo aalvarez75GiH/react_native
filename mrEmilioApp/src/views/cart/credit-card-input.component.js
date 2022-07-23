@@ -26,8 +26,8 @@ export const CreditCardInputComponent = ({
 
     if (!isIncomplete) {
       const response = await cardTokenRequest(card);
+      console.log(response);
       onSuccess(response);
-      handlingIsInComplete(isIncomplete);
     }
   };
 

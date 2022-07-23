@@ -10,6 +10,8 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { TextInput as RNPTextInput } from "react-native-paper";
 import { Avatar, List, Button } from "react-native-paper";
 import { Text } from "../../infraestructure/typography/text.component";
+import { ActivityIndicator } from "react-native-paper";
+import { theme } from "../../infraestructure/theme";
 
 // ************* Empty cart *********************
 export const EmptyCartIconContainer = styled.View`
@@ -226,4 +228,15 @@ export const OrderInfoAmounts = styled.View`
 
 export const NameInput = styled(RNPTextInput)`
   margin: ${(props) => props.theme.space[3]};
+`;
+
+export const PaymentProcessing = styled(ActivityIndicator).attrs({
+  size: 80,
+  animating: true,
+  color: theme.colors.brand.primary,
+})`
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  z-index: 999;
 `;

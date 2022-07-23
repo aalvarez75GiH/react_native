@@ -5,9 +5,9 @@ module.exports.companyData = {
     Owner: "Rubén Mejias",
   },
   companyFeesAndtaxes: {
-    shippingAndHandling_fee: 3,
+    shippingAndHandling_fee: 300,
     pickup_fee: 0,
-    discount: 1,
+    discount: 100,
     tax_fee: 825,
   },
 };
