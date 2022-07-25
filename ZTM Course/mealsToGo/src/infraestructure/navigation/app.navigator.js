@@ -10,7 +10,6 @@ import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import { MapNavigator } from "./map.navigator";
 import { CheckoutNavigator } from "./../navigation/checkout.navigator";
-import { CheckoutScreen } from "../../features/checkout/screens/checkout.screen";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +43,7 @@ export const AppNavigator = () => {
               }}
             >
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-              <Tab.Screen name="Checkout" component={CheckoutScreen} />
+              <Tab.Screen name="Checkout" component={CheckoutNavigator} />
               <Tab.Screen name="Map" component={MapNavigator} />
               <Tab.Screen name="Settings" component={SettingsNavigator} />
             </Tab.Navigator>

@@ -112,9 +112,11 @@ export const CartContextProvider = ({ children }) => {
   const changingDeliveryType = (type) => {
     setDeliveryType(type);
   };
-  //   const clearCart = () => {
-  //     setCart([]);
-  //   };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   console.log("this is Cart: ", cart);
   return (
     <CartContext.Provider
@@ -122,7 +124,7 @@ export const CartContextProvider = ({ children }) => {
         cart,
         addToCart: add,
         removeFromCart: removeItem,
-        // clearCart,
+        clearCart,
         sum,
         incQuantity,
         decQuantity,

@@ -24,6 +24,47 @@ export const CartContextProvider = ({ children }) => {
     setSum(total);
   }, [cart]);
 
+  // ******************************************************
+
+  useEffect(() => {
+    console.log(" LOADING USEEFFECT");
+    if (user && user.uid) {
+      loadCartByUser(user.uid);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (user && user.uid && cart.length) {
+      saveCartByUser(restaurant, cart, user.uid);
+    }
+  }, [restaurant, cart, user]);
+
+  const saveCartByUser = async (rst, crt, uid) => {
+    try {
+      console.log("save cart function working...");
+      const jsonValue = JSON.stringify({ restaurant: rst, cart: crt });
+      await AsyncStorage.setItem(`@cart-${uid}`, jsonValue);
+    } catch (error) {
+      console.log("error storing user cart:", error);
+    }
+  };
+
+  const loadCartByUser = async (uid) => {
+    try {
+      console.log("loading cart function working...");
+      const jsonValue = await AsyncStorage.getItem(`@cart-${uid}`);
+      if (jsonValue !== null) {
+        const { restaurant: rst, cart: crt } = JSON.parse(jsonValue);
+        setRestaurant(rst);
+        setCart(crt);
+      }
+    } catch (e) {
+      console.log("error loading:", e);
+    }
+  };
+
+  // **********************************************************
+
   const add = (item, rst) => {
     console.log(rst);
     if (!restaurant || restaurant.placeId !== rst.placeId) {

@@ -17,11 +17,10 @@ export const paymentRequest = async (token, amount, name) => {
     }),
     method: "POST",
   }).then((res) => {
-    console.log(res);
-    // if (res.status > 200) {
-    //   console.log(res);
-    //   return Promise.reject("Something went wrong processing your payment...");
-    // }
+    console.log("this is Res: ", res);
+    if (res.status > 200) {
+      return Promise.reject("Something went wrong processing your payment...");
+    }
 
     return res.json();
   });

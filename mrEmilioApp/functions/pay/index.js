@@ -22,6 +22,6 @@ module.exports.payRequest = (req, res, stripeClient) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(400).send("An error occurred with the payment");
+      res.status(400).send(err);
     });
 };

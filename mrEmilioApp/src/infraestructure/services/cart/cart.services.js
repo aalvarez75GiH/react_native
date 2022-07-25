@@ -37,8 +37,8 @@ export const paymentRequest = async (token, amount, name) => {
     }),
     method: "POST",
   }).then((res) => {
-    if (!res) {
-      return "There was a problem with the response from server";
+    if (res.status > 200) {
+      return Promise.reject("Something went wrong processing your payment...");
     }
     console.log(res);
     return res.json();

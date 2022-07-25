@@ -33,18 +33,14 @@ const AccountContainer = styled.View`
   align-items: center;
 `;
 
-export const PaymentView = () => {
-  const { cart, sum, companyInfo, deliveryType } = useContext(CartContext);
+export const PaymentView = ({ navigation }) => {
+  const { cart, sum, companyInfo, deliveryType, clearCart } =
+    useContext(CartContext);
   const [name, setName] = useState("");
   const [card, setCard] = useState(null);
   const [isIncomplete, setIsIncomplete] = useState(true);
   const [pi_errorMessage, setPi_errorMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  //   console.log("this is company info:", companyInfo);
-  //   console.log("this is my Delivery Type:", deliveryType);
-  const isAndroid = Platform.OS === "android";
-
-  //   const estimatedTaxToBeCollected = estimatedTax.toFixed(2);
 
   //   **********  Math Calculations *********************
   const shippingAndHandling_fee =
@@ -59,21 +55,13 @@ export const PaymentView = () => {
       ? sum + companyInfo.shippingAndHandling_fee - companyInfo.discount
       : sum + companyInfo.pickup_fee - companyInfo.discount;
 
-  //   const estimatedTaxTo =
-  //     ((companyInfo.tax_fee / 100) * totalBeforeTaxesSum) / 100;
-
   const estimatedTaxTo =
     ((companyInfo.tax_fee / 100) * totalBeforeTaxesSum) / 100;
-  //   console.log("estimated tax to:", estimatedTaxTo);
 
   const estimatedTaxToBeCollected = estimatedTaxTo / 100;
-  //   console.log("estimated tax to be collected:", estimatedTaxToBeCollected);
   const total = totalBeforeTaxesSum + estimatedTaxTo;
-  //   console.log("TOTAL:", total);
   const totalForStripe = Math.ceil(total);
-  //   console.log("this is te money we are sending to srtripe:", totalForStripe);
   //   //   *****************************************************
-  const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
 
   const onPay = async () => {
     setIsLoading(true);
@@ -85,11 +73,15 @@ export const PaymentView = () => {
     paymentRequest(card.id, totalForStripe, name)
       .then((response) => {
         setIsLoading(false);
-        console.log("Payment response from Stripe:", response);
+        clearCart();
+        navigation.navigate("PaymentSuccess");
       })
       .catch((err) => {
         setIsLoading(false);
         console.log("Error response from Stripe:", err);
+        navigation.navigate("PaymentError", {
+          error: err,
+        });
       });
   };
 
@@ -219,6 +211,12 @@ export const PaymentView = () => {
                 <CreditCardInputComponent
                   name={name}
                   onSuccess={(response) => onSuccess(response)}
+                  onError={(error_message) => {
+                    navigation.navigate("PaymentError", {
+                      //   error: "There has been an issue receiving token",
+                      error: error_message,
+                    });
+                  }}
                 />
               )}
             </Spacer>

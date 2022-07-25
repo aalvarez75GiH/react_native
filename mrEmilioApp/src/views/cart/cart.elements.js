@@ -240,3 +240,16 @@ export const PaymentProcessing = styled(ActivityIndicator).attrs({
   left: 40%;
   z-index: 999;
 `;
+
+// *************** Payment Success Screen*************************
+
+export const PaymentSuccessIcon = styled(Avatar.Icon).attrs({
+  size: 128,
+})`
+  background-color: ${(props) => props.theme.colors.ui.success};
+`;
+export const PaymentErrorIcon = styled(Avatar.Icon).attrs({
+  size: 128,
+})`
+  background-color: ${(props) => props.theme.colors.ui.error};
+`;

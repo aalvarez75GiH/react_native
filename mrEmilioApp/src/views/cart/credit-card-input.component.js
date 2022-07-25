@@ -7,6 +7,7 @@ import { cardTokenRequest } from "../../infraestructure/services/cart/cart.servi
 export const CreditCardInputComponent = ({
   name = "Jonh Doe",
   onSuccess,
+  onError,
   handlingIsInComplete,
 }) => {
   const onChange = async (formData) => {
@@ -25,9 +26,13 @@ export const CreditCardInputComponent = ({
     };
 
     if (!isIncomplete) {
-      const response = await cardTokenRequest(card);
-      console.log(response);
-      onSuccess(response);
+      try {
+        const response = await cardTokenRequest(card);
+        console.log(response);
+        onSuccess(response);
+      } catch (error) {
+        onError("Take a look to your credit card information...");
+      }
     }
   };
 

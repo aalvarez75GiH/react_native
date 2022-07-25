@@ -18,27 +18,34 @@ import {
 import { RestaurantsInfoCard } from "../../restaurants/components/restaurants-Info-card";
 import { paymentRequest } from "../../../services/checkout/checkout.service";
 
-export const CheckoutScreen = () => {
+export const CheckoutScreen = ({ navigation }) => {
   const { cart, restaurant, sum, clearCart } = useContext(CartContext);
   const [name, setName] = useState("");
   const [card, setCard] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   const onPay = () => {
     setIsLoading(true);
     if (!card || !card.id) {
       setIsLoading(false);
-      console.log("some error");
+      navigation.navigate("CheckoutError", {
+        error: "Please fill in a valid credit card... ",
+      });
+
       return;
     }
     paymentRequest(card.id, 1299, name)
       .then((response) => {
-        console.log(response);
         setIsLoading(false);
+        clearCart();
+        navigation.navigate("CheckoutSuccess");
       })
-      .catch((error) => {
+      .catch((err) => {
         setIsLoading(false);
-        console.log(error);
+        navigation.navigate("CheckoutError", {
+          error: err,
+        });
       });
   };
 
@@ -80,6 +87,11 @@ export const CheckoutScreen = () => {
             <CreditCardInputComponent
               name={name}
               onSuccess={(card) => setCard(card)}
+              onError={() =>
+                navigation.navigate("CheckoutError", {
+                  error: "There was an issue with your credit card",
+                })
+              }
             />
           )}
         </Spacer>
